@@ -1,6 +1,4 @@
 const { isPrime, range, permutations } = require("../../Utils/utils.js");
-const start = Date.now();
-
 const nums = permutations([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
 const funnyNums = [];
 const primes = range(0, 17).filter(isPrime);
@@ -11,5 +9,3 @@ nums.forEach((num) => {
     if (isFunny) funnyNums.push(parseInt(num));
 });
 console.log(funnyNums.reduce((a, b) => a + b));
-
-console.log(`${Date.now() - start}ms`);

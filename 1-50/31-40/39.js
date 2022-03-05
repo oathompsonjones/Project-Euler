@@ -1,5 +1,3 @@
-const start = Date.now();
-
 const pythagoreanTriples = (total) => {
     const triples = [];
     for (let a = 1; a < total / 2; a++)
@@ -18,5 +16,3 @@ for (let i = 0; i <= 1000; i++) {
     }
 }
 console.log(maxSolutionsP);
-
-console.log(`${Date.now() - start}ms`);

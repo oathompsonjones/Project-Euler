@@ -1,5 +1,4 @@
 const { range } = require("../../Utils/utils");
-const start = Date.now();
 const fs = require("fs");
 const path = "/Users/oathompsonjones/Programming/JS/Project Euler/Utils/p042_words.txt";
 fs.readFile(path, "utf8", (err, data) => {
@@ -11,6 +10,4 @@ fs.readFile(path, "utf8", (err, data) => {
     const triangulars = range(1, largestValue).map(i => 0.5 * i * (i + 1));
     const triangularWords = wordValues.filter(num => triangulars.includes(num));
     console.log(triangularWords.length);
-
-    console.log(`${Date.now() - start}ms`);
 });

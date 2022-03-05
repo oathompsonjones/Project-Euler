@@ -1,5 +1,3 @@
-const start = Date.now();
-
 const isPrime = (num) => {
     for (let i = 2; i <= Math.sqrt(num); i++) if (num % i === 0) return false;
     return num > 1;
@@ -22,5 +20,3 @@ const truncatableBothWays = truncatableLeftToRight.filter((prime) => {
     return true;
 });
 console.log(truncatableBothWays.filter((prime) => prime > 10).reduce((a, b) => a + b));
-
-console.log(`${Date.now() - start}ms`);
