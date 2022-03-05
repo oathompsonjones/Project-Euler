@@ -1,7 +1,7 @@
-const range = (start, end) => Array(end - start + 1).fill(0).map((_, idx) => start + idx);
+const range = (start, end) => Array(end - start + 1).fill(0).map((_, i) => start + i);
 const map = (x, inMin, inMax, outMin, outMax) => ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
-const factorial = (n) => Array(n).fill(0).map((_, i) => i + 1).reduce((a, b) => a * b);
+const factorial = (n) => Array(n).fill(0).map((_, i) => i + 1).reduce((a, b) => a * b, 1);
 const pentagonal = (n) => n * (3 * n - 1) / 2;
 
 const isPrime = (n) => {
