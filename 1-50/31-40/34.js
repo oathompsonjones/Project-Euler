@@ -1,4 +1,4 @@
-const factorial = (n) => n === 0 ? 1 : Object.keys([ ...Array(n).fill(0) ]).map((i) => parseInt(i) + 1).reduce((a, b) => a * b);
+const { factorial } = require("../../Utils/utils");
 const nums = [];
 for (let i = 3; i < 1000000; i++) {
     const digits = i.toString().split("");
