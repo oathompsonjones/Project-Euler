@@ -31,5 +31,4 @@ permutations.forEach((permutation) => {
     }
 });
 
-console.log([ ...new Set(products) ]);
 console.log([ ...new Set(products) ].reduce((a, b) => a + b));

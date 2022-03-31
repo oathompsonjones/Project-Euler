@@ -1,10 +1,5 @@
-const isPrime = (num) => {
-    for (let i = 2; i < num; i++) if (num % i === 0) return false;
-    return num > 1;
-};
+const { isPrime } = require("../../Utils/utils");
 
-const euler = (n) => (n * n) + (n) + (41);
-const notEuler = (n) => (n * n) - (79 * n) + (1601);
 const newEqu = (a, b, n) => (n * n) + (a * n) + (b);
 
 let N = 0;
@@ -28,5 +23,4 @@ for (let a = -999; a < 1000; a++) {
     }
 }
 
-console.log([ A, B, N ]);
 console.log(A * B);

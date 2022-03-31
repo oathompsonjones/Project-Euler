@@ -9,13 +9,10 @@ for (let i = 0; i < 1000; i++) {
         if (digit > 9) {
             digit -= 10;
             overflow = 1;
-        } else {
-            overflow = 0;
-        }
+        } else overflow = 0;
         number[ j ] = digit;
     }
 }
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 1000; i++)
     sum += number[ i ];
-}
 console.log(sum);

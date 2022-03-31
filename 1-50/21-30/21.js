@@ -10,13 +10,8 @@ const d = (n) => {
 let nums = [];
 for (let i = 1; i < 10000; i++) {
     const di = d(i).total;
-    if (d(di).total === i && i !== d(i).total) {
+    if (d(di).total === i && i !== d(i).total)
         nums.push(i, d(i).total);
-        console.log(`${i}: ${d(i).divisors.join(", ")}`);
-        console.log(`${di}: ${d(di).divisors.join(", ")}`);
-        console.log("\n");
-    }
 }
 nums = [ ...new Set(nums) ];
-console.log(nums);
 console.log(nums.reduce((a, b) => a + b));

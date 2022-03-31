@@ -1,4 +1,4 @@
-function Sequence(num) {
+function sequence(num) {
     let sequence = [];
     while (num !== 1) {
         sequence.push(num);
@@ -14,7 +14,7 @@ function Sequence(num) {
 let longestSequenceLength = 0;
 let longestSequenceNumber = 0;
 for (let i = 1; i < 1000000; i++) {
-    let temp = Sequence(i);
+    let temp = sequence(i);
     if (temp.length > longestSequenceLength) {
         longestSequenceLength = temp.length;
         longestSequenceNumber = i;

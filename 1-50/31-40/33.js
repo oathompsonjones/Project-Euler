@@ -11,10 +11,8 @@ for (let n = 10; n < 100; n++) {
     }
 }
 
-console.log(results);
 const finalNumerator = results.map(i => i[ 0 ]).reduce((a, b) => a * b);
 const finalDenominator = results.map(i => i[ 1 ]).reduce((a, b) => a * b);
-console.log([ finalNumerator, finalDenominator ]);
 
 const HCF = (x, y) => {
     while (Math.max(x, y) % Math.min(x, y) !== 0) x > y ? x %= y : y %= x;
