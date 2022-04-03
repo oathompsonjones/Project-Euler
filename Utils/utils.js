@@ -84,6 +84,17 @@ const howPerfect = (n) => {
 const isPerfect = (num) => howPerfect(num) === "PERFECT";
 const isAbundant = (num) => howPerfect(num) === "ABUNDANT";
 const isDeficient = (num) => howPerfect(num) === "DEFICIENT";
+const primeFactors = (n) => {
+    const factors = [];
+    for (let divisor = 2; n >= 2;) {
+        if (n % divisor === 0) {
+            factors.push(divisor);
+            n /= divisor;
+        }
+        else divisor++;
+    }
+    return [ ... new Set(factors) ];
+};
 
 const readFile = (path) => {
     const fs = require("fs");
@@ -108,5 +119,6 @@ module.exports = {
     isPerfect,
     isAbundant,
     isDeficient,
+    primeFactors,
     readFile
 };
