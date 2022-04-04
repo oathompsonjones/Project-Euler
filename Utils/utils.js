@@ -95,6 +95,20 @@ const primeFactors = (n) => {
     }
     return [ ... new Set(factors) ];
 };
+const arePermutations = (x, y) => {
+    const xDigits = x.toString().split("").map(Number);
+    let yDigits = y.toString().split("").map(Number);
+    if (xDigits.length !== yDigits.length)
+        return false;
+    for (const digit of xDigits) {
+        let index;
+        if ((index = yDigits.indexOf(digit)) === -1)
+            return false;
+        else
+            yDigits = yDigits.filter((_, i) => i !== index);
+    }
+    return true;
+};
 
 const readFile = (path) => {
     const fs = require("fs");
@@ -120,5 +134,6 @@ module.exports = {
     isAbundant,
     isDeficient,
     primeFactors,
+    arePermutations,
     readFile
 };
