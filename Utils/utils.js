@@ -39,8 +39,7 @@ const isPrime = (num) => {
 };
 const isPandigital = (n) => Array(Math.min(n.toString().length, 9)).fill(0).map((_, i) => i + 1).every((d) => n.toString().includes(d));
 const swap = (array1, index1, index2) => {
-    let temp;
-    temp = array1[ index1 ];
+    let temp = array1[ index1 ];
     array1[ index1 ] = array1[ index2 ];
     array1[ index2 ] = temp;
 };
