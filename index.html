@@ -20,7 +20,10 @@
                 const innerFolder = `${innerFolderMin}-${innerFolderMax}`;
                 const path = `https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/${outerFolder}/${innerFolder}/${i + 1}.js`;
 
-                const file = await fetch(path);
+                const file = await fetch(path, {
+                    mode: "cors",
+                    headers: { "Access-Control-Allow-Origin": "*" }
+                });
 
                 document.write(`<h3>Problem ${i + 1}</h3>`);
                 console.log(file);
