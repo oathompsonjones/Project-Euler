@@ -11,11 +11,22 @@
 <body>
     <script>
         (async () => {
-            const res = await fetch("/src/1-50/1-10/1.js");
-            console.log(res);
+            for (let i = 0; i < 49; i++) {
+                const outerFolderMin = Math.floor(i / 50) * 50 + 1;
+                const outerFolderMax = outerFolderMin + 49;
+                const outerFolder = `${outerFolderMin}-${outerFolderMax}`;
+                const innerFolderMin = Math.floor(i / 10) * 10 + 1;
+                const innerFolderMax = innerFolderMin + 9;
+                const innerFolder = `${innerFolderMin}-${innerFolderMax}`;
+                const path = `src/${outerFolder}/${innerFolder}/${i + 1}.js`;
+
+                const file = await fetch(path);
+
+                document.write(`<h3>Problem ${i + 1}</h3>`);
+                document.write(file);
+            }
         })();
     </script>
-    Docs
 </body>
 
 </html>
