@@ -43,11 +43,13 @@
                 const innerFolder = `${innerFolderMin}-${innerFolderMax}`;
                 const path = `https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/${outerFolder}/${innerFolder}/${i + 1}.js`;
 
-                const file = await fetch(path);
-                const text = await file.text();
+                try {
+                    const file = await fetch(path);
+                    const text = await file.text();
 
-                document.write(`<h3>Problem ${i + 1}</h3>`);
-                document.write(`<pre><code>${text}</code></pre>`);
+                    document.write(`<h3>Problem ${i + 1}</h3>`);
+                    document.write(`<pre><code>${text}</code></pre>`);
+                } catch (err) { }
             }
 
             writeNav();
