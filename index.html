@@ -9,7 +9,12 @@
 </head>
 
 <body>
-    <script src="./loader.js"></script>
+    <script>
+        (async () => {
+            const files = await fetch("../src");
+            console.log(files);
+        })();
+    </script>
 </body>
 
-</html>;
+</html>
