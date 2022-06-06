@@ -16,10 +16,8 @@
             const MAX_PAGES = 5;
 
             let page = parseInt(document.URL.split("?page=")[ 1 ]);
-            console.log(page);
             if (isNaN(page) || page < 1) window.location.replace(`${document.URL.split("?page=")[ 0 ]}?page=1`);
             if (page > MAX_PAGES) window.location.replace(`${document.URL.split("?page=")[ 0 ]}?page=${MAX_PAGES}`);
-            console.log(page);
 
             const writeNav = () => {
                 document.write(`<nav aria-label="Pages"><ul class="pagination"><li class="page-item"><a class="page-link" href="/Project-Euler/?page=${Math.max(page - 1, 1)}">Previous</a></li>`);
@@ -32,6 +30,8 @@
 
             const start = Math.floor((page - 1) / 10) * 10;
             const end = start + 9;
+
+            console.log({ start, end });
 
             for (let i = start; i < end; i++) {
                 const outerFolderMin = Math.floor(i / 50) * 50 + 1;
