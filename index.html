@@ -18,12 +18,12 @@
                 const innerFolderMin = Math.floor(i / 10) * 10 + 1;
                 const innerFolderMax = innerFolderMin + 9;
                 const innerFolder = `${innerFolderMin}-${innerFolderMax}`;
-                const path = `src/${outerFolder}/${innerFolder}/${i + 1}.js`;
+                const path = `https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/${outerFolder}/${innerFolder}/${i + 1}.js`;
 
                 const file = await fetch(path);
 
                 document.write(`<h3>Problem ${i + 1}</h3>`);
-                document.write(file);
+                document.write(file.data);
             }
         })();
     </script>
