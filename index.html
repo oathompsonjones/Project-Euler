@@ -19,7 +19,7 @@
             if (isNaN(page) || page < 1) page = 1;
             if (page > MAX_PAGES) page = MAX_PAGES;
 
-            const start = Math.floor(page / 10) * 10 + 1;
+            const start = Math.floor((page - 1) / 10) * 10 + 1;
             const end = start + 9;
 
             for (let i = start; i < end; i++) {
