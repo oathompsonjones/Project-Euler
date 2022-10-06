@@ -18,7 +18,7 @@
         (async () => {
             const MAX_PAGES = 5;
 
-            let page = parseInt(document.URL.split("?page=")[ 1 ]);
+            const page = parseInt(document.URL.split("?page=")[ 1 ]);
             if (isNaN(page) || page < 1) window.location.replace(`${document.URL.split("?page=")[ 0 ]}?page=1`);
             if (page > MAX_PAGES) window.location.replace(`${document.URL.split("?page=")[ 0 ]}?page=${MAX_PAGES}`);
 
