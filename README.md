@@ -1,6 +1,66 @@
 # Project Euler
 [Project Euler](https://projecteuler.net) is a website which is full of puzzles which can help develop programming skills.
 This repository contains my solutions to each problem. These solutions may not all be the most efficient.
+## Contents
+## Contents
+- [Utils](#utils)
+- [Problems 1-50](#problems-1-50)
+	- [Problems 1-10](#problems-1-10)
+		- [Problem 1.js](#problem-1.js)
+		- [Problem 2.js](#problem-2.js)
+		- [Problem 3.js](#problem-3.js)
+		- [Problem 4.js](#problem-4.js)
+		- [Problem 5.js](#problem-5.js)
+		- [Problem 6.js](#problem-6.js)
+		- [Problem 7.js](#problem-7.js)
+		- [Problem 8.js](#problem-8.js)
+		- [Problem 9.js](#problem-9.js)
+		- [Problem 10.js](#problem-10.js)
+	- [Problems 11-20](#problems-11-20)
+		- [Problem 11.js](#problem-11.js)
+		- [Problem 12.js](#problem-12.js)
+		- [Problem 13.js](#problem-13.js)
+		- [Problem 14.js](#problem-14.js)
+		- [Problem 15.js](#problem-15.js)
+		- [Problem 16.js](#problem-16.js)
+		- [Problem 17.js](#problem-17.js)
+		- [Problem 18.js](#problem-18.js)
+		- [Problem 19.js](#problem-19.js)
+		- [Problem 20.js](#problem-20.js)
+	- [Problems 21-30](#problems-21-30)
+		- [Problem 21.js](#problem-21.js)
+		- [Problem 22.js](#problem-22.js)
+		- [Problem 23.js](#problem-23.js)
+		- [Problem 24.js](#problem-24.js)
+		- [Problem 25.js](#problem-25.js)
+		- [Problem 26.js](#problem-26.js)
+		- [Problem 27.js](#problem-27.js)
+		- [Problem 28.js](#problem-28.js)
+		- [Problem 29.js](#problem-29.js)
+		- [Problem 30.js](#problem-30.js)
+	- [Problems 31-40](#problems-31-40)
+		- [Problem 31.js](#problem-31.js)
+		- [Problem 32.js](#problem-32.js)
+		- [Problem 33.js](#problem-33.js)
+		- [Problem 34.js](#problem-34.js)
+		- [Problem 35.js](#problem-35.js)
+		- [Problem 36.js](#problem-36.js)
+		- [Problem 37.js](#problem-37.js)
+		- [Problem 38.js](#problem-38.js)
+		- [Problem 39.js](#problem-39.js)
+		- [Problem 40.js](#problem-40.js)
+	- [Problems 41-50](#problems-41-50)
+		- [Problem 41.js](#problem-41.js)
+		- [Problem 42.js](#problem-42.js)
+		- [Problem 43.js](#problem-43.js)
+		- [Problem 44.js](#problem-44.js)
+		- [Problem 45.js](#problem-45.js)
+		- [Problem 46.js](#problem-46.js)
+		- [Problem 47.js](#problem-47.js)
+		- [Problem 48.js](#problem-48.js)
+		- [Problem 49.js](#problem-49.js)
+		- [Problem 50.js](#problem-50.js)
+
 ## Utils
 A series of utility functions which come in handy for several problems.
 
@@ -1327,5 +1387,3 @@ for (const index in primeSums)
         longestSumKey = index;
 console.log(longestSumKey);
 ```
-## Problems 51-100
-
