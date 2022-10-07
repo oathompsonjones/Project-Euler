@@ -1,0 +1,9 @@
+{
+    "name": "project-euler",
+    "version": "1.0.0",
+    "description": "My Project Euler solutions.",
+    "scripts": {
+        "readme": "node prepReadme && npx embedme README.md"
+    },
+    "homepage": "https://oathompsonjones.github.io/Project-Euler"
+}
