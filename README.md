@@ -6,7 +6,7 @@ This repository contains my solutions to each problem. These solutions may not a
 
 <details>
     <summary>Problem 1</summary>
-    ```js
+    <p>```js
     // src/1-50/1-10/1.js
     
     let sum = 0;
@@ -14,5 +14,5 @@ This repository contains my solutions to each problem. These solutions may not a
         if (i % 3 === 0 || i % 5 === 0)
             sum += i;
     console.log(sum);
-    ```
+    ```</p>
 </details>
