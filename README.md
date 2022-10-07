@@ -58,7 +58,6 @@ This repository contains my solutions to each problem. These solutions may not a
 		- [Problem 47.js](#problem-47js)
 		- [Problem 48.js](#problem-48js)
 		- [Problem 49.js](#problem-49js)
-		- [Problem 50.js](#problem-50js)
 
 ## Utils
 A series of utility functions which come in handy for several problems.
@@ -1341,3 +1340,4 @@ for (let i = 1000; i < 10000; i++) {
         finalTerms = terms;
 }
 console.log(finalTerms.map((x) => x.toString()).join(""));
+```
