@@ -25,7 +25,7 @@ const problemsMarkdown = foldersInSrc.map((folder) => {
             .filter((file) => file.endsWith(".js"))
             .sort(new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare);
         const filesMarkdown = files.map((file) => {
-            contents += `\t\t- [Problem ${file}](#problem-${file})\n`;
+            contents += `\t\t- [Problem ${file}](#problem-${file.replace(/\./g, "")})\n`;
             const fileMarkdown = `\`\`\`js\n// ${srcFolder}/${folder}/${subFolder}/${file}\n\`\`\``;
             return `#### Problem ${file}\n${fileMarkdown}`;
         }).join("\n");
