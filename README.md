@@ -2,7 +2,6 @@
 [Project Euler](https://projecteuler.net) is a website which is full of puzzles which can help develop programming skills.
 This repository contains my solutions to each problem. These solutions may not all be the most efficient.
 ## Contents
-## Contents
 - [Utils](#utils)
 - [Problems 1-50](#problems-1-50)
 	- [Problems 1-10](#problems-1-10)

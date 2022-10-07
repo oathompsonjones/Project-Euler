@@ -37,7 +37,6 @@ const problemsMarkdown = foldersInSrc.map((folder) => {
 const data = `# Project Euler
 [Project Euler](https://projecteuler.net) is a website which is full of puzzles which can help develop programming skills.
 This repository contains my solutions to each problem. These solutions may not all be the most efficient.
-## Contents
 ${contents}
 ${utilsMarkdown}
 ${problemsMarkdown}
