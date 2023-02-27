@@ -7,7 +7,8 @@ let i = 0;
 for (; consecutiveCount < COUNT; i++) {
     if (primeFactors(i).length === COUNT)
         consecutiveCount++;
-    else consecutiveCount = 0;
+    else
+        consecutiveCount = 0;
 }
 
 console.log(i - COUNT);

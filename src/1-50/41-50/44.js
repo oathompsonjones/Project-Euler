@@ -1,6 +1,6 @@
 const { pentagonal, isPentagonal } = require("../../Utils/utils.js");
 
-let found, pj, pk, sum, difference;
+let difference, found, pj, pk, sum;
 
 for (let j = 1; !found && j < 10000; j++) {
     for (let k = j + 1; !found && k < 10000; k++) {

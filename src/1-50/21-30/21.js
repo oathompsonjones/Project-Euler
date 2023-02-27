@@ -1,6 +1,9 @@
 const d = (n) => {
-    let divisors = [ 0 ];
-    for (let i = Math.floor(n / 2); i > 0; i--) if (n % i === 0) divisors.push(i);
+    const divisors = [0];
+    for (let i = Math.floor(n / 2); i > 0; i--) {
+        if (n % i === 0)
+            divisors.push(i);
+    }
     return {
         divisors,
         total: divisors.reduce((a, b) => a + b)
@@ -13,5 +16,5 @@ for (let i = 1; i < 10000; i++) {
     if (d(di).total === i && i !== d(i).total)
         nums.push(i, d(i).total);
 }
-nums = [ ...new Set(nums) ];
+nums = [...new Set(nums)];
 console.log(nums.reduce((a, b) => a + b));

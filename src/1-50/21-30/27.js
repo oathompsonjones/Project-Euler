@@ -1,6 +1,6 @@
 const { isPrime } = require("../../Utils/utils");
 
-const newEqu = (a, b, n) => (n * n) + (a * n) + (b);
+const newEqu = (a, b, n) => n * n + a * n + b;
 
 let N = 0;
 let A = 0;

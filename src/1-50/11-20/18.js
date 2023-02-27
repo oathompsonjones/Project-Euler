@@ -1,5 +1,3 @@
-const test = [ "3", "7 4", "2 4 6", "8 5 9 3" ];
-
 const triangle = [
     "75",
     "95 64",
@@ -20,23 +18,26 @@ const triangle = [
 
 function prepareNumTriangle(tri) {
     for (let i = 0; i < tri.length; i++) {
-        tri[ i ] = tri[ i ].split(" ");
-        for (let j = 0; j < tri[ i ].length; j++) tri[ i ][ j ] = parseInt(tri[ i ][ j ]);
+        tri[i] = tri[i].split(" ");
+        for (let j = 0; j < tri[i].length; j++)
+            tri[i][j] = parseInt(tri[i][j], 10);
     }
 }
 
 function collapseTriangleToHighest(numTri) {
-    let tmpTri = numTri;
-    let botRow = tmpTri[ tmpTri.length - 1 ];
+    const tmpTri = numTri;
+    let botRow = tmpTri[tmpTri.length - 1];
     for (let i = 0; i < tmpTri.length - 1; i++) {
-        let checkRow = tmpTri[ tmpTri.length - 2 - i ];
+        const checkRow = tmpTri[tmpTri.length - 2 - i];
         for (let j = 0; j < checkRow.length; j++) {
-            if (botRow[ j ] > botRow[ j + 1 ]) checkRow[ j ] += botRow[ j ];
-            else checkRow[ j ] += botRow[ j + 1 ];
+            if (botRow[j] > botRow[j + 1])
+                checkRow[j] += botRow[j];
+            else
+                checkRow[j] += botRow[j + 1];
         }
         botRow = checkRow;
     }
-    return tmpTri[ 0 ][ 0 ];
+    return tmpTri[0][0];
 }
 
 prepareNumTriangle(triangle);

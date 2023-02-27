@@ -1,5 +1,5 @@
 let num = 600851475143;
-let sqrtNum = Math.sqrt(num);
+const sqrtNum = Math.sqrt(num);
 let answer;
 
 for (let i = 2; i <= sqrtNum; i++) {

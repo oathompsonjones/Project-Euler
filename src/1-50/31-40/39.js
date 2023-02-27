@@ -1,10 +1,14 @@
 const pythagoreanTriples = (total) => {
     const triples = [];
-    for (let a = 1; a < total / 2; a++)
-        for (let b = 1; b < total / 2; b++)
-            for (let c = 1; c < total / 2; c++)
-                if (a * a + b * b === c * c) triples.push([ a, b, c ]);
-    return [ ...new Set(triples.map((triple) => triple.sort())) ].filter((triple) => triple.reduce((a, b) => a + b) === total);
+    for (let a = 1; a < total / 2; a++) {
+        for (let b = 1; b < total / 2; b++) {
+            for (let c = 1; c < total / 2; c++) {
+                if (a * a + b * b === c * c)
+                    triples.push([a, b, c]);
+            }
+        }
+    }
+    return [...new Set(triples.map((triple) => triple.sort()))].filter((triple) => triple.reduce((a, b) => a + b) === total);
 };
 let maxSolutionsP = 0;
 let maxSolutions = 0;

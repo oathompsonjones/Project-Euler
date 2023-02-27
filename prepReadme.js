@@ -23,9 +23,9 @@ const problemsMarkdown = foldersInSrc.map((folder) => {
         const files = fs
             .readdirSync(`${srcFolder}/${folder}/${subFolder}`)
             .filter((file) => file.endsWith(".js"))
-            .sort(new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare);
+            .sort(new Intl.Collator(undefined, { numeric: true, sensitivity: "base" }).compare);
         const filesMarkdown = files.map((file) => {
-            contents += `\t\t- [Problem ${file}](#problem-${file.replace(/\./g, "")})\n`;
+            contents += `\t\t- [Problem ${file}](#problem-${file.replace(/\./gu, "")})\n`;
             const fileMarkdown = `\`\`\`js\n// ${srcFolder}/${folder}/${subFolder}/${file}\n\`\`\``;
             return `#### Problem ${file}\n${fileMarkdown}`;
         }).join("\n");

@@ -3,26 +3,30 @@ const getCycleSize = (num) => {
     const numerators = [];
     const numeratorDigits = [];
 
+    let digitsInSequence = 0;
+
     while (!digitsInSequence) {
-        if (numerator == 0) return 0;
+        if (numerator === 0)
+            return 0;
 
         // Check if the numerator is previously repeated
         for (let i = 0; i < numerators.length; i++) {
-            if (numerator === numerators[ i ]) {
-                var digitsInSequence = 0;
-                for (let j = i; j < numerators.length; j++) digitsInSequence += numeratorDigits[ j ];
+            if (numerator === numerators[i]) {
+                digitsInSequence = 0;
+                for (let j = i; j < numerators.length; j++)
+                    digitsInSequence += numeratorDigits[j];
                 return digitsInSequence;
             }
         }
 
         // Repeat not found, update the numerators and digits
-        numerators[ numerators.length ] = numerator;
+        numerators[numerators.length] = numerator;
         let digits = 1;
         while (num > numerator) {
             numerator *= 10;
             digits++;
         }
-        numeratorDigits[ numeratorDigits.length ] = digits;
+        numeratorDigits[numeratorDigits.length] = digits;
         // Get the next numerator
         numerator %= num;
     }

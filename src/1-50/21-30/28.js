@@ -1,8 +1,8 @@
-const corners = [ 1 ];
+const corners = [1];
 let currentCorners = [];
 let currentDifference = 2;
 for (let i = 2; i <= 1001 * 1001; i++) {
-    if (i - corners[ corners.length - 1 ] === currentDifference) {
+    if (i - corners[corners.length - 1] === currentDifference) {
         corners.push(i);
         currentCorners.push(i);
     }

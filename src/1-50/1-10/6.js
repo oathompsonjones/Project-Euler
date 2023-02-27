@@ -6,7 +6,7 @@ for (let i = 100; i > 0; i--) {
     sqrSum += i * i;
     sumSqr += i;
 }
-sumSqr = sumSqr * sumSqr;
+sumSqr *= sumSqr;
 
 diff = sumSqr - sqrSum;
 console.log(diff);
