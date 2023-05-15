@@ -12,7 +12,10 @@ const utilsFiles = fs
     .readdirSync(`${srcFolder}/${utilsFolder}`)
     .filter((file) => file.endsWith(".js"));
 const utilsMarkdown = utilsFiles
-    .map((file) => `## Utils\nA series of utility functions which come in handy for several problems.\n\n\`\`\`js\n// ${srcFolder}/${utilsFolder}/${file}\n\`\`\`\n`)
+    .map((file) => [
+        "## Utils\nA series of utility functions which come in handy for several problems.\n\n```js",
+        `// ${srcFolder}/${utilsFolder}/${file}\n\`\`\`\n`
+    ].join("\n"))
     .join("\n");
 
 const problemsMarkdown = foldersInSrc.map((folder) => {
