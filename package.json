@@ -1,9 +1,25 @@
 {
-    "name": "project-euler",
-    "version": "1.0.0",
-    "description": "My Project Euler solutions.",
-    "scripts": {
-        "readme": "node prepReadme && npx embedme README.md"
+    "name": "ts-init",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "url": "https://github.com/oathompsonjones/ts-init.git"
     },
-    "homepage": "https://oathompsonjones.github.io/Project-Euler"
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "exports": "./build/index.js",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint .",
+        "build": "tsc",
+        "start": "node ."
+    },
+    "author": "oathompsonjones",
+    "license": "MIT",
+    "devDependencies": {
+        "@oathompsonjones/eslint-config": "^1.2.0",
+        "@oathompsonjones/ts-config": "^0.0.31",
+        "@types/node": "^20.12.12",
+        "typescript": "^5.4.5"
+    }
 }
