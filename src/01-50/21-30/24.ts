@@ -19,4 +19,4 @@ function permute(input: number[]): number[][] {
     return permutations;
 }
 
-export default permute(digits)[1000000 - 1]?.join("");
+export default parseInt(permute(digits)[1000000 - 1]!.join(""), 10);
