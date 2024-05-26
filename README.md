@@ -3,17 +3,17 @@
 This repository contains my solutions to each problem. These solutions may not all be the most efficient.
 ## Contents
 - [Utils](#utils)
-- [Problems 1-50](#problems-1-50)
-	- [Problems 1-10](#problems-1-10)
-		- [Problem 1.ts](#problem-1ts)
-		- [Problem 2.ts](#problem-2ts)
-		- [Problem 3.ts](#problem-3ts)
-		- [Problem 4.ts](#problem-4ts)
-		- [Problem 5.ts](#problem-5ts)
-		- [Problem 6.ts](#problem-6ts)
-		- [Problem 7.ts](#problem-7ts)
-		- [Problem 8.ts](#problem-8ts)
-		- [Problem 9.ts](#problem-9ts)
+- [Problems 01-50](#problems-01-50)
+	- [Problems 01-10](#problems-01-10)
+		- [Problem 01.ts](#problem-01ts)
+		- [Problem 02.ts](#problem-02ts)
+		- [Problem 03.ts](#problem-03ts)
+		- [Problem 04.ts](#problem-04ts)
+		- [Problem 05.ts](#problem-05ts)
+		- [Problem 06.ts](#problem-06ts)
+		- [Problem 07.ts](#problem-07ts)
+		- [Problem 08.ts](#problem-08ts)
+		- [Problem 09.ts](#problem-09ts)
 		- [Problem 10.ts](#problem-10ts)
 	- [Problems 11-20](#problems-11-20)
 		- [Problem 11.ts](#problem-11ts)
@@ -273,9 +273,9 @@ export function arePermutations(x: number, y: number): boolean {
 
 ```
 
-## Problems 1-50
-### Problems 1-10
-#### Problem 1.ts
+## Problems 01-50
+### Problems 01-10
+#### Problem 01.ts
 ```ts
 let sum = 0;
 
@@ -283,10 +283,11 @@ for (let i = 1; i < 1000; i++) {
     if (i % 3 === 0 || i % 5 === 0)
         sum += i;
 }
-console.log(sum);
+
+export default sum;
 
 ```
-#### Problem 2.ts
+#### Problem 02.ts
 ```ts
 let a = 1;
 let b = 0;
@@ -307,14 +308,14 @@ numArr.forEach((num) => {
     total += num;
 });
 
-console.log(total);
+export default total;
 
 ```
-#### Problem 3.ts
+#### Problem 03.ts
 ```ts
 let num = 600851475143;
 const sqrtNum = Math.sqrt(num);
-let answer;
+let answer = 0;
 
 for (let i = 2; i <= sqrtNum; i++) {
     while (num % i === 0) {
@@ -323,10 +324,10 @@ for (let i = 2; i <= sqrtNum; i++) {
     }
 }
 
-console.log(answer);
+export default answer;
 
 ```
-#### Problem 4.ts
+#### Problem 04.ts
 ```ts
 const arr = [];
 let newNum;
@@ -343,15 +344,15 @@ for (let i = 999; i > 100; i--) {
     }
 }
 
-console.log(Math.max(...arr));
+export default Math.max(...arr);
 
 ```
-#### Problem 5.ts
+#### Problem 05.ts
 ```ts
 let num = 1;
-let result = null;
+let result = NaN;
 
-while (result === null) {
+while (isNaN(result)) {
     if (
         num % 1 === 0 &&
         num % 2 === 0 &&
@@ -379,10 +380,10 @@ while (result === null) {
     num++;
 }
 
-console.log(result);
+export default result;
 
 ```
-#### Problem 6.ts
+#### Problem 06.ts
 ```ts
 let sqrSum = 0;
 let sumSqr = 0;
@@ -392,27 +393,26 @@ for (let i = 100; i > 0; i--) {
     sqrSum += i * i;
     sumSqr += i;
 }
-sumSqr *= sumSqr;
 
+sumSqr *= sumSqr;
 diff = sumSqr - sqrSum;
-console.log(diff);
+
+export default diff;
 
 ```
-#### Problem 7.ts
+#### Problem 07.ts
 ```ts
 const primes = [2];
 
 for (let i = 3; primes.length <= 10001; i += 2) {
-    if (primes.every((v) => i % v !== 0)) {
+    if (primes.every((v) => i % v !== 0))
         primes.push(i);
-
-        if (primes.length === 10001)
-            console.log(i);
-    }
 }
 
+export default primes[10000];
+
 ```
-#### Problem 8.ts
+#### Problem 08.ts
 ```ts
 const num = [
     "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843",
@@ -435,10 +435,11 @@ for (let i = 1; i < 1000; i++) {
     if (!isNaN(product))
         largest = Math.max(product, largest);
 }
-console.log(largest);
+
+export default largest;
 
 ```
-#### Problem 9.ts
+#### Problem 09.ts
 ```ts
 const arrPythag = [];
 
@@ -458,9 +459,9 @@ for (const i of arrPythag) {
         }
     }
 }
-const product = allTriplets[0]![0]! * allTriplets[0]![1]! * allTriplets[0]![2]!;
 
-console.log(product);
+export default allTriplets[0]![0]! * allTriplets[0]![1]! * allTriplets[0]![2]!;
+
 
 ```
 #### Problem 10.ts
@@ -473,7 +474,8 @@ for (let i = 2; i < 2000000; i++) {
     if (isPrime(i))
         sum += i;
 }
-console.log(sum);
+
+export default sum;
 
 ```
 
@@ -537,7 +539,8 @@ for (let i = NUM - 1; i < GRID.length - NUM; i++) {
         );
     }
 }
-console.log(product);
+
+export default product;
 
 ```
 #### Problem 12.ts
@@ -550,7 +553,7 @@ let y = 1;
 while (factors(x).length <= 500)
     x += y++;
 
-console.log(x);
+export default x;
 
 ```
 #### Problem 13.ts
@@ -660,8 +663,8 @@ let sum = 0;
 num.split("\n").forEach((number) => {
     sum += parseInt(number, 10);
 });
-console.log(sum.toString().replace(".", "")
-    .slice(0, 10));
+
+export default parseInt(sum.toString().replace(".", "").slice(0, 10), 10);
 
 ```
 #### Problem 14.ts
@@ -694,7 +697,7 @@ for (let i = 1; i < 1000000; i++) {
     }
 }
 
-console.log(longestSequenceNumber);
+export default longestSequenceNumber;
 
 ```
 #### Problem 15.ts
@@ -719,7 +722,7 @@ function getNumRoutes(sizeX: number, sizeY: number): number {
     return routes;
 }
 
-console.log(getNumRoutes(20, 20));
+export default getNumRoutes(20, 20);
 
 ```
 #### Problem 16.ts
@@ -749,7 +752,7 @@ for (let i = 0; i < 1000; i++) {
 for (let i = 0; i < 1000; i++)
     sum += number[i]!;
 
-console.log(sum);
+export default sum;
 
 ```
 #### Problem 17.ts
@@ -794,7 +797,7 @@ function countLettersTo1000(): number {
     return count;
 }
 
-console.log(countLettersTo1000());
+export default countLettersTo1000();
 
 ```
 #### Problem 18.ts
@@ -850,7 +853,7 @@ function collapseTriangleToHighest(numTri: number[][]): number {
     return tmpTri[0]![0]!;
 }
 
-console.log(collapseTriangleToHighest(prepareNumTriangle(triangle)));
+export default collapseTriangleToHighest(prepareNumTriangle(triangle));
 
 ```
 #### Problem 19.ts
@@ -861,7 +864,8 @@ for (let date = new Date(1901, 0, 1); date <= new Date(2000, 11, 31); date.setDa
     if (date.getDay() === 0 && date.getDate() === 1)
         daysFound++;
 }
-console.log(daysFound);
+
+export default daysFound;
 
 ```
 #### Problem 20.ts
@@ -875,7 +879,8 @@ let total = 0;
 num.split("").forEach((n) => {
     total += parseInt(n, 10);
 });
-console.log(total);
+
+export default total;
 
 ```
 
@@ -905,7 +910,8 @@ for (let i = 1; i < 10000; i++) {
         nums.push(i, d(i).total);
 }
 nums = [...new Set(nums)];
-console.log(nums.reduce((a, b) => a + b));
+
+export default nums.reduce((a, b) => a + b);
 
 ```
 #### Problem 22.ts
@@ -926,7 +932,8 @@ names.forEach((name) => {
         name.ascii += name.value.charCodeAt(i) - 64;
     name.score = name.ascii * (names.map((n) => n.value).indexOf(name.value) + 1);
 });
-console.log(names.map((name) => name.score).reduce((a, b) => a + b));
+
+export default names.map((name) => name.score).reduce((a, b) => a + b);
 
 ```
 #### Problem 23.ts
@@ -949,7 +956,7 @@ abundantSums = [...new Set(abundantSums)];
 const notSumOfAbunadant = Object.keys(new Array(upperLimit).fill(0)).map((i) => parseInt(i, 10))
     .filter((i) => !abundantSums.includes(i));
 
-console.log(notSumOfAbunadant.reduce((a, b) => a + b));
+export default notSumOfAbunadant.reduce((a, b) => a + b);
 
 ```
 #### Problem 24.ts
@@ -975,7 +982,7 @@ function permute(input: number[]): number[][] {
     return permutations;
 }
 
-console.log(permute(digits)[1000000 - 1]?.join(""));
+export default permute(digits)[1000000 - 1]?.join("");
 
 ```
 #### Problem 25.ts
@@ -991,7 +998,7 @@ function fibonacci(): bigint[] | number[] {
     return fibonacci();
 }
 
-console.log(fibonacci().length);
+export default fibonacci().length;
 
 ```
 #### Problem 26.ts
@@ -1047,7 +1054,7 @@ for (let currentNum = longestNum + 1; currentNum <= 1000; currentNum++) {
     }
 }
 
-console.log(longestNum);
+export default longestNum;
 
 
 ```
@@ -1083,7 +1090,7 @@ for (let a = -999; a < 1000; a++) {
     }
 }
 
-console.log(A * B);
+export default A * B;
 
 ```
 #### Problem 28.ts
@@ -1104,7 +1111,7 @@ for (let i = 2; i <= 1001 * 1001; i++) {
     }
 }
 
-console.log(corners.reduce((a, b) => a + b));
+export default corners.reduce((a, b) => a + b);
 
 ```
 #### Problem 29.ts
@@ -1115,7 +1122,8 @@ for (let a = 2; a <= 100; a++) {
     for (let b = 2; b <= 100; b++)
         numbers.push(a ** b);
 }
-console.log([...new Set(numbers)].length);
+
+export default [...new Set(numbers)].length;
 
 ```
 #### Problem 30.ts
@@ -1131,7 +1139,8 @@ for (let i = 10; i < 1000000; i++) {
         .reduce((a, b) => a + b))
         numbers.push(i);
 }
-console.log(numbers.reduce((a, b) => a + b));
+
+export default numbers.reduce((a, b) => a + b);
 
 ```
 
@@ -1155,7 +1164,8 @@ for (let a = 200; a >= 0; a -= 200) {
         }
     }
 }
-console.log(ways);
+
+export default ways;
 
 ```
 #### Problem 32.ts
@@ -1201,7 +1211,7 @@ permutations.forEach((permutation) => {
     }
 });
 
-console.log([...new Set(products)].reduce((a, b) => a + b));
+export default [...new Set(products)].reduce((a, b) => a + b);
 
 ```
 #### Problem 33.ts
@@ -1230,7 +1240,7 @@ for (let n = 10; n < 100; n++) {
 const finalNumerator = results.map((i) => i[0]!).reduce((a, b) => a * b);
 const finalDenominator = results.map((i) => i[1]!).reduce((a, b) => a * b);
 
-console.log(finalDenominator / hcf(finalNumerator, finalDenominator));
+export default finalDenominator / hcf(finalNumerator, finalDenominator);
 
 ```
 #### Problem 34.ts
@@ -1248,7 +1258,7 @@ for (let i = 3; i < 1000000; i++) {
         nums.push(i);
 }
 
-console.log(nums.reduce((a, b) => a + b, 0));
+export default nums.reduce((a, b) => a + b, 0);
 
 ```
 #### Problem 35.ts
@@ -1271,7 +1281,7 @@ const primes = Array(1000000).fill(0).map((_, i) => i)
     .filter((i) => isPrime(i));
 const allCircularPrimes = primes.filter((prime) => rotations(prime).map((r) => isPrime(Number(r))).every((b) => b));
 
-console.log(allCircularPrimes.length);
+export default allCircularPrimes.length;
 
 ```
 #### Problem 36.ts
@@ -1288,7 +1298,7 @@ const palindromicDecimalsAsBinary = palindromicDecimals.map(stringToBinary);
 const palindromicBinarys = palindromicDecimalsAsBinary.filter((i) => i.split("").reverse()
     .join("") === i);
 
-console.log(palindromicBinarys.map((bin) => parseInt(bin, 2)).reduce((a, b) => a + b));
+export default palindromicBinarys.map((bin) => parseInt(bin, 2)).reduce((a, b) => a + b);
 
 ```
 #### Problem 37.ts
@@ -1323,7 +1333,7 @@ const truncatableBothWays = truncatableLeftToRight.filter((prime) => {
     return true;
 });
 
-console.log(truncatableBothWays.filter((prime) => prime > 10).reduce((a, b) => a + b));
+export default truncatableBothWays.filter((prime) => prime > 10).reduce((a, b) => a + b);
 
 ```
 #### Problem 38.ts
@@ -1349,7 +1359,7 @@ const pandigitals = Array(1e6).fill(0)
     .map((_, i) => getPandigital(i))
     .filter((i) => !isNaN(i));
 
-console.log(pandigitals.reduce((a, b) => Math.max(a, b)));
+export default pandigitals.reduce((a, b) => Math.max(a, b));
 
 ```
 #### Problem 39.ts
@@ -1381,7 +1391,7 @@ for (let i = 0; i <= 1000; i++) {
         maxSolutionsP = i;
     }
 }
-console.log(maxSolutionsP);
+export default maxSolutionsP;
 
 ```
 #### Problem 40.ts
@@ -1395,7 +1405,8 @@ let res = 1;
 
 for (let i = 1; i < 1e6; i *= 10)
     res *= decimal[i - 1]!;
-console.log(res);
+
+export default res;
 
 ```
 
@@ -1413,7 +1424,7 @@ const pandigitals = range(1000, 9999).filter(isPandigital)
     .concat(range(1000000, 9999999).filter(isPandigital));
 const primes = pandigitals.filter(isPrime);
 
-console.log(primes.reduce((a, b) => Math.max(a, b)));
+export default primes.reduce((a, b) => Math.max(a, b));
 
 ```
 #### Problem 42.ts
@@ -1430,7 +1441,7 @@ const largestValue = wordValues.reduce((a, b) => Math.max(a, b));
 const triangulars = range(1, largestValue).map((i) => 0.5 * i * (i + 1));
 const triangularWords = wordValues.filter((num) => triangulars.includes(num));
 
-console.log(triangularWords.length);
+export default triangularWords.length;
 
 ```
 #### Problem 43.ts
@@ -1452,7 +1463,8 @@ nums.forEach((num) => {
     if (isFunny)
         funnyNums.push(parseInt(num, 10));
 });
-console.log(funnyNums.reduce((a, b) => a + b));
+
+export default funnyNums.reduce((a, b) => a + b);
 
 ```
 #### Problem 44.ts
@@ -1475,38 +1487,38 @@ for (let j = 1; !found && j < 10000; j++) {
     }
 }
 
-console.log(difference);
+export default difference;
 
 ```
 #### Problem 45.ts
 ```ts
 import { isHexagonal, isPentagonal, triangular } from "../../Utils/utils.js";
 
-let result = null;
+let result = NaN;
 
-for (let n = 286; result === null; n++) {
+for (let n = 286; isNaN(result); n++) {
     const tn = triangular(n);
 
     if (isHexagonal(tn) && isPentagonal(tn))
         result = tn;
 }
 
-console.log(result);
+export default result;
 
 ```
 #### Problem 46.ts
 ```ts
 import { isPrime } from "../../Utils/utils.js";
 
-let result = null;
+let result = NaN;
 
-for (let i = 9; result === null; i += 2) {
+for (let i = 9; isNaN(result); i += 2) {
     if (isPrime(i))
         continue;
 
     for (let j = 1; j < Math.sqrt(i); j++) {
         if (isPrime(i - 2 * j * j)) {
-            result = null;
+            result = NaN;
             break;
         } else {
             result = i;
@@ -1514,7 +1526,7 @@ for (let i = 9; result === null; i += 2) {
     }
 }
 
-console.log(result);
+export default result;
 
 ```
 #### Problem 47.ts
@@ -1533,7 +1545,7 @@ for (; consecutiveCount < COUNT; i++) {
         consecutiveCount = 0;
 }
 
-console.log(i - COUNT);
+export default i - COUNT;
 
 ```
 #### Problem 48.ts
@@ -1543,7 +1555,8 @@ let sum = 0n;
 
 for (let i = 1n; i <= 1000n; i++)
     sum += i ** i;
-console.log(sum.toString().slice(sum.toString().length - 10));
+
+export const answer = sum.toString().slice(sum.toString().length - 10);
 
 /* This is better.
    (a * b) % c = ((a % c) * (b % c)) % c
@@ -1561,7 +1574,8 @@ for (let i = 1; i <= 1000; i++) {
     result += temp;
     result %= modulo;
 }
-console.log(result);
+
+export default result;
 
 ```
 #### Problem 49.ts
@@ -1589,7 +1603,8 @@ for (let i = 1000; i < 10000; i++) {
     if (terms.length === 3)
         finalTerms = terms;
 }
-console.log(finalTerms.map((x) => x.toString()).join(""));
+
+export default finalTerms.map((x) => x.toString()).join("");
 
 ```
 #### Problem 50.ts
@@ -1643,7 +1658,8 @@ for (const index in primeSums) {
     if (primeSums[longestSumKey] === undefined || primeSums[index]!.length > primeSums[longestSumKey]!.length)
         longestSumKey = Number(index);
 }
-console.log(longestSumKey);
+
+export default longestSumKey;
 
 ```
 
