@@ -1,9 +1,9 @@
 {
-    "name": "ts-init",
+    "name": "project-euler",
     "version": "0.0.1",
     "description": "",
     "repository": {
-        "url": "https://github.com/oathompsonjones/ts-init.git"
+        "url": "https://github.com/oathompsonjones/Project-Euler.git"
     },
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
@@ -11,7 +11,8 @@
     "type": "module",
     "scripts": {
         "lint": "eslint .",
-        "build": "tsc",
+        "test": "vitest run",
+        "build": "tsc --project tsconfig.build.json",
         "start": "node ."
     },
     "author": "oathompsonjones",
@@ -20,6 +21,7 @@
         "@oathompsonjones/eslint-config": "^1.2.0",
         "@oathompsonjones/ts-config": "^0.0.31",
         "@types/node": "^20.12.12",
-        "typescript": "^5.4.5"
+        "typescript": "^5.4.5",
+        "vitest": "^1.6.0"
     }
 }

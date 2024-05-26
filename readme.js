@@ -14,7 +14,7 @@ const utils = [
 let problems = "";
 
 for (const folder of await fs.readdir("src")) {
-    if (folder === "Utils")
+    if (["Utils", "__tests__"].includes(folder))
         continue;
 
     contents += `- [Problems ${folder}](#problems-${folder})\n`;
