@@ -1,4 +1,4 @@
-import { hcf } from "../../Utils/utils.js";
+import { hcf } from "../../utils.js";
 
 const results = [];
 

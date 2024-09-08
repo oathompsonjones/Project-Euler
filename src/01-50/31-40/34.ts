@@ -1,4 +1,4 @@
-import { factorial } from "../../Utils/utils.js";
+import { factorial } from "../../utils.js";
 
 const nums = [];
 

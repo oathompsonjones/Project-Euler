@@ -1,4 +1,4 @@
-import { isPrime, permutations, range } from "../../Utils/utils.js";
+import { isPrime, permutations, range } from "../../utils.js";
 
 const nums = permutations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 const funnyNums: number[] = [];

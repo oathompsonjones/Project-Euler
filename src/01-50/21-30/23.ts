@@ -1,4 +1,4 @@
-import { isAbundant } from "../../Utils/utils.js";
+import { isAbundant } from "../../utils.js";
 
 // All numbers larger can be expressed as the sum of 2 abundant numbers.
 const upperLimit = 28123;

@@ -1,4 +1,4 @@
-import { isPentagonal, pentagonal } from "../../Utils/utils.js";
+import { isPentagonal, pentagonal } from "../../utils.js";
 
 let found = false;
 let difference = 0;

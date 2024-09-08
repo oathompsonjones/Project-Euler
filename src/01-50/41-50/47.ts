@@ -1,4 +1,4 @@
-import { primeFactors } from "../../Utils/utils.js";
+import { primeFactors } from "../../utils.js";
 
 const COUNT = 4;
 let consecutiveCount = 0;

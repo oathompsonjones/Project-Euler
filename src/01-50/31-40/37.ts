@@ -1,4 +1,4 @@
-import { isPrime } from "../../Utils/utils.js";
+import { isPrime } from "../../utils.js";
 
 const primes = Array(1e6).fill(0)
     .map((_, i) => i)

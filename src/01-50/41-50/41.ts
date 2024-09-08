@@ -1,4 +1,4 @@
-import { isPandigital, isPrime, range } from "../../Utils/utils.js";
+import { isPandigital, isPrime, range } from "../../utils.js";
 
 /**
  * Notes:

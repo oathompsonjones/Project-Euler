@@ -1,7 +1,7 @@
-import { range } from "../../Utils/utils.js";
+import { range } from "../../utils.js";
 import { readFile } from "fs/promises";
 
-const data = await readFile("/Users/oathompsonjones/Programming/JS/Project Euler/src/Utils/p042_words.txt", "utf-8");
+const data = await readFile("inputs/p042_words.txt", "utf-8");
 const words = JSON.parse(`[${data}]`) as unknown as string[];
 const wordValues = words.map((word) => word.toUpperCase().split("")
     .map((char) => char.charCodeAt(0) - 64)

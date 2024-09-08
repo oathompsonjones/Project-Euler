@@ -1,4 +1,4 @@
-import { isPrime } from "../../Utils/utils.js";
+import { isPrime } from "../../utils.js";
 
 const rotations = (n: number): string[] => {
     const numbers = [];

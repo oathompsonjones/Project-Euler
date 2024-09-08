@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 
-const data = await readFile("/Users/oathompsonjones/Programming/JS/Project Euler/src/Utils/p022_names.txt", "utf-8");
+const data = await readFile("inputs/p022_names.txt", "utf-8");
 const names = data.replace(/"/ug, "").split(",")
     .sort()
     .map((name) => ({

@@ -1,4 +1,4 @@
-import { isPrime } from "../../Utils/utils.js";
+import { isPrime } from "../../utils.js";
 
 /* eslint-disable @typescript-eslint/naming-convention */
 const pi = {

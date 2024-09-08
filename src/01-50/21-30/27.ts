@@ -1,4 +1,4 @@
-import { isPrime } from "../../Utils/utils.js";
+import { isPrime } from "../../utils.js";
 
 const newEqu = (a: number, b: number, n: number): number => n * n + a * n + b;
 

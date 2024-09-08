@@ -1,4 +1,4 @@
-import { arePermutations, isPrime } from "../../Utils/utils.js";
+import { arePermutations, isPrime } from "../../utils.js";
 
 let finalTerms: number[] = [];
 

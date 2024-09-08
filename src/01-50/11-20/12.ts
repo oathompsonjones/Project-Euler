@@ -1,4 +1,4 @@
-import { factors } from "../../Utils/utils.js";
+import { factors } from "../../utils.js";
 
 let x = 0;
 let y = 1;

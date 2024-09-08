@@ -1,5 +1,5 @@
 // @ts-check
-import { getProblemPath } from "./build/Utils/utils.js";
+import { getProblemPath } from "./build/utils.js";
 
 const problem = parseInt(process.argv[2], 10);
 

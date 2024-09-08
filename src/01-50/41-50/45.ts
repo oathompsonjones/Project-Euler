@@ -1,4 +1,4 @@
-import { isHexagonal, isPentagonal, triangular } from "../../Utils/utils.js";
+import { isHexagonal, isPentagonal, triangular } from "../../utils.js";
 
 let result = NaN;
 

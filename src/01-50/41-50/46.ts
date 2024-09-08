@@ -1,4 +1,4 @@
-import { isPrime } from "../../Utils/utils.js";
+import { isPrime } from "../../utils.js";
 
 let result = NaN;
 
