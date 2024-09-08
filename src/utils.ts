@@ -155,29 +155,26 @@ export function swap(array: unknown[], index1: number, index2: number): void {
 
 /**
  * Generates the permutations of an array.
- * @param a - The array.
+ * @template T - The type of the array.
+ * @param array - The array to generate permutations of.
  * @returns An array of permutations.
  */
-export function permutations(a: unknown[]): string[] {
-    const r = a.length - 1;
-    const l = 0;
-    const output: string[] = [];
+export function permutations<T>(array: T[]): T[][] {
+    const result = [array.slice()];
+    const c = Array.from({ length: array.length }, () => 0);
 
-    const permute = (_a: unknown[], _l: number, _r: number): void => {
-        if (_l === _r) {
-            output.push(_a.join(""));
+    for (let i = 1; i < array.length; i++) {
+        if (c[i]! < i) {
+            swap(array, i, i % 2 && c[i]!);
+            ++c[i]!;
+            i = 0;
+            result.push(array.slice());
         } else {
-            for (let i = _l; i <= _r; i++) {
-                swap(_a, _l, i);
-                permute(_a, _l + 1, _r);
-                swap(_a, _l, i);
-            }
+            c[i] = 0;
         }
-    };
+    }
 
-    permute(a, l, r);
-
-    return output;
+    return result;
 }
 
 /**
