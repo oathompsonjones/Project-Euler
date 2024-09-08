@@ -1,19 +1,20 @@
 import { isPentagonal, pentagonal } from "../../utils.js";
 
-let found = false;
-let difference = 0;
-let pj = 0;
-let pk = 0;
-let sum = 0;
+let D = 0;
 
-for (let j = 1; !found && j < 10000; j++) {
-    for (let k = j + 1; !found && k < 10000; k++) {
-        pj = pentagonal(j);
-        pk = pentagonal(k);
-        sum = pj + pk;
-        difference = Math.abs(pj - pk);
-        found = isPentagonal(sum) && isPentagonal(difference);
+loop: for (let j = 1; ; j++) {
+    const pj = pentagonal(j);
+
+    for (let k = j + 1; k < 5000; k++) {
+        const pk = pentagonal(k);
+
+        D = Math.abs(pj - pk);
+
+        const found = isPentagonal(pj + pk) && isPentagonal(D);
+
+        if (found)
+            break loop;
     }
 }
 
-export default difference;
+export default D;

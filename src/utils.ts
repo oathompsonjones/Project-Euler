@@ -66,19 +66,7 @@ export function triangular(n: number): number {
  * @returns `true` if `n` is triangular, `false` otherwise.
  */
 export function isTriangular(n: number): boolean {
-    if (n < 0)
-        return false;
-
-    let sum = 0;
-
-    for (let i = 1; sum <= n; i++) {
-        sum += i;
-
-        if (sum === n)
-            return true;
-    }
-
-    return false;
+    return Math.sqrt(8 * n + 1) % 1 === 0;
 }
 
 /**
@@ -96,14 +84,7 @@ export function pentagonal(n: number): number {
  * @returns `true` if `n` is pentagonal, `false` otherwise.
  */
 export function isPentagonal(n: number): boolean {
-    let i = 1;
-    let m;
-
-    do
-        m = pentagonal(i++);
-    while (m < n);
-
-    return m === n;
+    return Math.sqrt(1 + 24 * n) % 6 === 5;
 }
 
 /**
