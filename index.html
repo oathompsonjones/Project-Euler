@@ -92,12 +92,10 @@
             const code = document.getElementById("code");
 
             function getFile(problem) {
+                const p = (n) => `${n}`.padStart(3, "0");
                 const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
-                const closest50Minus49 = String(closest50 - 49).padStart(2, "0");
                 const closest10 = problem % 10 === 0 ? problem : Math.floor(problem / 10) * 10 + 10;
-                const closest10Minus9 = String(closest10 - 9).padStart(2, "0");
-                const file = problem.toString().padStart(2, "0");
-                const path = `/src/${closest50Minus49}-${closest50}/${closest10Minus9}-${closest10}/${file}.ts`;
+                const path = `/src/${p(closest50 - 49)}-${p(closest50)}/${p(closest10 - 9)}-${p(closest10)}/${p(problem)}.ts`;
                 return `https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/${path}`;
             }
 

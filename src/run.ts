@@ -8,16 +8,15 @@ import { fileURLToPath } from "url";
  * @returns The path to the problem file.
  */
 export function getProblemPath(problem: number, src: boolean = false): string {
+    const p = (n: number): string => `${n}`.padStart(3, "0");
+
     const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
-    const closest50Minus49 = String(closest50 - 49).padStart(2, "0");
     const closest10 = problem % 10 === 0 ? problem : Math.floor(problem / 10) * 10 + 10;
-    const closest10Minus9 = String(closest10 - 9).padStart(2, "0");
 
     const dir = src ? "src" : "build";
     const ext = src ? "ts" : "js";
-    const file = problem.toString().padStart(2, "0");
 
-    return `${dir}/${closest50Minus49}-${closest50}/${closest10Minus9}-${closest10}/${file}.${ext}`;
+    return `${dir}/${p(closest50 - 49)}-${p(closest50)}/${p(closest10 - 9)}-${p(closest10)}/${p(problem)}.${ext}`;
 }
 
 const fileArg = process.argv[1]?.endsWith(".js") ?? false ? process.argv[1] : `${process.argv[1]}.js`;
