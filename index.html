@@ -1,68 +1,61 @@
 <!DOCTYPE html>
+<head>
+    <style>
+        :root {
+            --background: rgb(30, 33, 39);
+            --text: white;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --background: white;
+                --text: black;
+            }
+        }
+
+        body,
+        input,
+        h2,
+        a {
+            align-items: center;
+            background-color: var(--background);
+            color: var(--text);
+            display: flex;
+            font-family: "Monaco", monospace;
+            justify-content: center;
+        }
+
+        pre,
+        input {
+            border: 3px solid gray;
+            border-radius: 1rem;
+            display: flex;
+            padding: 1rem;
+        }
+    </style>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
 <html>
     <body>
         <div>
             <div style="display: flex;">
                 <h1>Project Euler</h1>
                 <div style="flex: 1;"></div>
-                <input type="number" id="input" placeholder="Enter a problem number">
+                <input type="number" id="input" placeholder="Enter a problem">
             </div>
-            <h2><a href="" id="title"></a></h2>
+            <a>
+                <h2 id="title"></h2>
+            </a>
             <pre id="code-wrapper" style="display: none;">
-                <code id="code"></code>
+                <code class="language-typescript" id="code"></code>
             </pre>
             <h2>Utils</h2>
             <pre>
-                <code id="utils"></code>
+                <code class="language-typescript" id="utils"></code>
             </pre>
         </div>
-        <style>
-            :root {
-                --background: rgb(25, 28, 32);
-                --background-code: rgb(30, 33, 39);
-                --text: white;
-                --text-code: lightgray;
-            }
-
-            @media (prefers-color-scheme: light) {
-                :root {
-                    --background: white;
-                    --background-code: rgb(240, 240, 240);
-                    --text: black;
-                    --text-code: black;
-                }
-            }
-
-            body {
-                align-items: center;
-                background-color: var(--background);
-                color: var(--text);
-                display: flex;
-                font-family: "Monaco", monospace;
-                justify-content: center;
-            }
-
-            pre {
-                background-color: var(--background-code);
-                border: 3px solid gray;
-                border-radius: 1rem;
-                color: var(--text-code);
-                display: flex;
-                padding: 1rem;
-            }
-
-            a {
-                color: var(--text);
-            }
-
-            input {
-                background-color: var(--background-code);
-                border: 3px solid gray;
-                border-radius: 1rem;
-                color: var(--text);
-                padding: 1rem;
-            }
-        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
             const input = document.getElementById("input");
             const title = document.getElementById("title");
@@ -86,7 +79,9 @@
                     title.href = `https://projecteuler.net/problem=${value}`;
                     title.textContent = `Problem ${value}`;
                     codeWrapper.style.display = "flex";
-                    fetch(getFile(value)).then((response) => response.text()).then((text) => code.textContent = text);
+                    fetch(getFile(value))
+                        .then((response) => response.text())
+                        .then((text) => code.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
                 } else {
                     title.href = "";
                     title.textContent = "";
@@ -96,7 +91,9 @@
 
             const utils = document.getElementById("utils");
             const utilsPath = "https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/utils.ts";
-            fetch(utilsPath).then((response) => response.text()).then((text) => utils.textContent = text);
+            fetch(utilsPath)
+                .then((response) => response.text())
+                .then((text) => utils.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
         </script>
     </body>
 </html>
