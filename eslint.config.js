@@ -1,3 +1,4 @@
+// @ts-check
 import createConfig from "@oathompsonjones/eslint-config";
 
-export default [...createConfig("./tsconfig.json"), { rules: { "no-console": "off" } }];
+export default createConfig({ configs: [{ rules: { "no-console": "off" } }] });
