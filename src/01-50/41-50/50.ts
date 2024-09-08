@@ -1,56 +1,30 @@
 import { isPrime } from "../../utils.js";
 
-/* eslint-disable @typescript-eslint/naming-convention */
-const pi = {
-    10: 4,
-    100: 25,
-    1_000: 168,
-    10_000: 1_229,
-    100_000: 9_592,
-    1_000_000: 78_498,
-};
-/* eslint-enable @typescript-eslint/naming-convention */
-const x = 1e6;
+const limit = 1e6;
+const primes = [];
 
-/**
- * Generates prime numbers.
- * @yields The next prime number.
- */
-function* primeGeneratorFunc(): Generator<number, number> {
-    let primeCounter = 1;
-
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    while (true) {
-        while (!isPrime(++primeCounter))
-            ;
-
-        yield primeCounter;
-    }
+for (let i = 2; i < limit; i++) {
+    if (isPrime(i) && primes.reduce((a, b) => a + b, 0) + i < limit)
+        primes.push(i);
 }
-const primeGenerator = primeGeneratorFunc();
-const primes = Array(pi[x]).fill(0).map(() => primeGenerator.next().value);
 
-const primeSums: Record<number, number[]> = {};
+let sum = 0;
+let max = 0;
+let maxSum = 0;
 
-for (let i = primes.length - 1; i > 1; i--) {
-    for (let j = 0; j < primes.length; j++) {
-        const sum: number[] = [];
+for (let i = 0; i < primes.length; i++) {
+    sum = 0;
+    for (let j = i; j < primes.length; j++) {
+        sum += primes[j]!;
 
-        for (let k = j; k < Math.min(j + i, primes.length); k++)
-            sum.push(primes[k]!);
-        const sumValue = sum.reduce((a, b) => a + b);
+        if (sum > limit)
+            break;
 
-        if (isPrime(sumValue) && sumValue < x && sum.length > (primeSums[sumValue]?.length ?? -1))
-            primeSums[sumValue] = sum;
+        if (isPrime(sum) && j - i > max) {
+            max = j - i;
+            maxSum = sum;
+        }
     }
 }
 
-let longestSumKey = -1;
-
-for (const index in primeSums) {
-    if (primeSums[longestSumKey] === undefined || primeSums[index]!.length > primeSums[longestSumKey]!.length)
-        longestSumKey = Number(index);
-}
-
-export default longestSumKey;
-// TODO: This is way too slow. 997651
+export default maxSum;
