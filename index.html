@@ -17,33 +17,49 @@
             </pre>
         </div>
         <style>
+            :root {
+                --background: rgb(25, 28, 32);
+                --background-code: rgb(30, 33, 39);
+                --text: white;
+                --text-code: lightgray;
+            }
+
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --background: white;
+                    --background-code: rgb(240, 240, 240);
+                    --text: black;
+                    --text-code: black;
+                }
+            }
+
             body {
                 align-items: center;
-                background-color: rgb(25, 28, 32);
-                color: white;
+                background-color: var(--background);
+                color: var(--text);
                 display: flex;
                 font-family: "Monaco", monospace;
                 justify-content: center;
             }
 
             pre {
-                background-color: rgb(30, 33, 39);
+                background-color: var(--background-code);
                 border: 3px solid gray;
                 border-radius: 1rem;
-                color: lightgray;
+                color: var(--text-code);
                 display: flex;
                 padding: 1rem;
             }
 
             a {
-                color: white;
+                color: var(--text);
             }
 
             input {
-                background-color: rgb(30, 33, 39);
+                background-color: var(--background-code);
                 border: 3px solid gray;
                 border-radius: 1rem;
-                color: white;
+                color: var(--text);
                 padding: 1rem;
             }
         </style>
