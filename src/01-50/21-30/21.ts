@@ -1,4 +1,4 @@
-function d(n: number): { divisors: number[]; total: number; } {
+const d = (n: number): { divisors: number[]; total: number; } => {
     const divisors = [0];
 
     for (let i = Math.floor(n / 2); i > 0; i--) {
@@ -10,7 +10,7 @@ function d(n: number): { divisors: number[]; total: number; } {
         divisors,
         total: divisors.reduce((a, b) => a + b),
     };
-}
+};
 
 let nums = [];
 

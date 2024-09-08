@@ -1,8 +1,6 @@
 import { isPrime } from "../../Utils/utils.js";
 
-function newEqu(a: number, b: number, n: number): number {
-    return n * n + a * n + b;
-}
+const newEqu = (a: number, b: number, n: number): number => n * n + a * n + b;
 
 let N = 0;
 let A = 0;

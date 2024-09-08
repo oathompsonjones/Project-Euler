@@ -1,8 +1,6 @@
 const numbers = [];
 
-function digits(n: number): number[] {
-    return n.toString().split("").map(Number);
-}
+const digits = (n: number): number[] => n.toString().split("").map(Number);
 
 for (let i = 10; i < 1000000; i++) {
     if (i === digits(i).map((j) => j ** 5)

@@ -1,4 +1,4 @@
-function getPandigital(i: number): number {
+const getPandigital = (i: number): number => {
     let str = "";
 
     for (let n = 1; str.length < 9; n++)
@@ -13,7 +13,7 @@ function getPandigital(i: number): number {
     }
 
     return parseInt(str, 10);
-}
+};
 
 const pandigitals = Array(1e6).fill(0)
     .map((_, i) => getPandigital(i))

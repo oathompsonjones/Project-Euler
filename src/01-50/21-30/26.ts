@@ -1,4 +1,4 @@
-function getCycleSize(num: number): number {
+const getCycleSize = (num: number): number => {
     let numerator = 1;
     const numerators = [];
     const numeratorDigits = [];
@@ -35,7 +35,7 @@ function getCycleSize(num: number): number {
     }
 
     return NaN;
-}
+};
 
 let longestNum = 1;
 let largestCycleSize = 1;

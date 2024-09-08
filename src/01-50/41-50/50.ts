@@ -12,6 +12,10 @@ const pi = {
 /* eslint-enable @typescript-eslint/naming-convention */
 const x = 1e6;
 
+/**
+ * Generates prime numbers.
+ * @yields The next prime number.
+ */
 function* primeGeneratorFunc(): Generator<number, number> {
     let primeCounter = 1;
 
@@ -49,3 +53,4 @@ for (const index in primeSums) {
 }
 
 export default longestSumKey;
+// 997651

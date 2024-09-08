@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-function sequence(num: number): number[] {
+const sequence = (num: number): number[] => {
     const _sequence = [];
 
     while (num !== 1) {
@@ -12,7 +12,7 @@ function sequence(num: number): number[] {
     }
 
     return _sequence;
-}
+};
 
 let longestSequenceLength = 0;
 let longestSequenceNumber = 0;

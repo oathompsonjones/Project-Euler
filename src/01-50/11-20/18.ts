@@ -16,7 +16,7 @@ const triangle = [
     "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23",
 ];
 
-function prepareNumTriangle(tri: string[]): number[][] {
+const prepareNumTriangle = (tri: string[]): number[][] => {
     const numTri: number[][] = [];
 
     for (let i = 0; i < tri.length; i++) {
@@ -28,9 +28,9 @@ function prepareNumTriangle(tri: string[]): number[][] {
     }
 
     return numTri;
-}
+};
 
-function collapseTriangleToHighest(numTri: number[][]): number {
+const collapseTriangleToHighest = (numTri: number[][]): number => {
     const tmpTri = numTri;
     let botRow = tmpTri[tmpTri.length - 1]!;
 
@@ -39,14 +39,14 @@ function collapseTriangleToHighest(numTri: number[][]): number {
 
         for (let j = 0; j < checkRow.length; j++) {
             if (botRow[j]! > botRow[j + 1]!)
-                checkRow[j] += botRow[j]!;
+                checkRow[j]! += botRow[j]!;
             else
-                checkRow[j] += botRow[j + 1]!;
+                checkRow[j]! += botRow[j + 1]!;
         }
         botRow = checkRow;
     }
 
     return tmpTri[0]![0]!;
-}
+};
 
 export default collapseTriangleToHighest(prepareNumTriangle(triangle));

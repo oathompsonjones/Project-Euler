@@ -1,4 +1,4 @@
-function pythagoreanTriples(total: number): number[][] {
+const pythagoreanTriples = (total: number): number[][] => {
     const triples = [];
 
     for (let a = 1; a < total / 2; a++) {
@@ -12,7 +12,7 @@ function pythagoreanTriples(total: number): number[][] {
 
     return [...new Set(triples.map((triple) => triple.sort((a, b) => a - b)))]
         .filter((triple) => triple.reduce((a, b) => a + b) === total);
-}
+};
 
 let maxSolutionsP = 0;
 let maxSolutions = 0;

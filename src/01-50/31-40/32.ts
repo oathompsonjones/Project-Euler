@@ -2,7 +2,7 @@ const permutations: number[][] = ((input): number[][] => {
     const permArr: number[][] = [];
     const usedChars: number[] = [];
 
-    function permute(inp: number[]): number[][] {
+    const permute = (inp: number[]): number[][] => {
         let ch;
 
         for (let i = 0; i < inp.length; i++) {
@@ -18,7 +18,7 @@ const permutations: number[][] = ((input): number[][] => {
         }
 
         return permArr;
-    }
+    };
 
     return permute(input);
 })([1, 2, 3, 4, 5, 6, 7, 8, 9]);

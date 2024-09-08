@@ -1,6 +1,6 @@
 import { isPrime } from "../../Utils/utils.js";
 
-function rotations(n: number): string[] {
+const rotations = (n: number): string[] => {
     const numbers = [];
     let num = n.toString();
 
@@ -10,7 +10,7 @@ function rotations(n: number): string[] {
     }
 
     return numbers;
-}
+};
 
 const primes = Array(1000000).fill(0).map((_, i) => i)
     .filter((i) => isPrime(i));

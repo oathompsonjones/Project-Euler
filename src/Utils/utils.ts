@@ -1,18 +1,64 @@
 /* eslint-disable no-param-reassign */
+
+/**
+ * Gets the path to a problem file.
+ * @param problem - The problem number.
+ * @param src - Whether to get the source file path.
+ * @returns The path to the problem file.
+ */
+export function getProblemPath(problem: number, src: boolean = false): string {
+    const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
+    const closest50Minus49 = String(closest50 - 49).padStart(2, "0");
+    const closest10 = problem % 10 === 0 ? problem : Math.floor(problem / 10) * 10 + 10;
+    const closest10Minus9 = String(closest10 - 9).padStart(2, "0");
+
+    const dir = src ? "src" : "build";
+    const ext = src ? "ts" : "js";
+    const file = problem.toString().padStart(2, "0");
+
+    return `./${dir}/${closest50Minus49}-${closest50}/${closest10Minus9}-${closest10}/${file}.${ext}`;
+}
+
+/**
+ * Generates the range [start, end].
+ * @param start - The starting number.
+ * @param end - The ending number.
+ * @returns An array of numbers from `start` to `end`.
+ */
 export function range(start: number, end: number): number[] {
     return Array(end - start + 1).fill(0).map((_, i) => start + i);
 }
 
+/**
+ * Takes a number in a range and maps it proportionately to another range.
+ * @param x - The number to map.
+ * @param inMin - The minimum value of the input range.
+ * @param inMax - The maximum value of the input range.
+ * @param outMin - The minimum value of the output range.
+ * @param outMax - The maximum value of the output range.
+ * @returns The mapped number.
+ */
 export function map(x: number, inMin: number, inMax: number, outMin: number, outMax: number): number {
     return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
+/**
+ * Calculates the factorial of a number.
+ * @param n - The number.
+ * @returns The factorial of `n`.
+ */
 export function factorial(n: number): number {
     return Array<number>(n).fill(0)
         .map((_, i) => i + 1)
         .reduce((a, b) => a * b, 1);
 }
 
+/**
+ * Calculates the greatest common divisor of two numbers.
+ * @param x - The first number.
+ * @param y - The second number.
+ * @returns The greatest common divisor of `x` and `y`.
+ */
 export function hcf(x: number, y: number): number {
     while (Math.max(x, y) % Math.min(x, y) !== 0) {
         if (x > y)
@@ -24,10 +70,20 @@ export function hcf(x: number, y: number): number {
     return Math.min(x, y);
 }
 
+/**
+ * Calculates the nth triangular number.
+ * @param n - The number.
+ * @returns The nth triangular number.
+ */
 export function triangular(n: number): number {
     return n * (n + 1) / 2;
 }
 
+/**
+ * Checks if a number is triangular.
+ * @param n - The number.
+ * @returns `true` if `n` is triangular, `false` otherwise.
+ */
 export function isTriangular(n: number): boolean {
     if (n < 0)
         return false;
@@ -44,10 +100,20 @@ export function isTriangular(n: number): boolean {
     return false;
 }
 
+/**
+ * Calculates the nth pentagonal number.
+ * @param n - The number.
+ * @returns The nth pentagonal number.
+ */
 export function pentagonal(n: number): number {
     return n * (3 * n - 1) / 2;
 }
 
+/**
+ * Checks if a number is pentagonal.
+ * @param n - The number.
+ * @returns `true` if `n` is pentagonal, `false` otherwise.
+ */
 export function isPentagonal(n: number): boolean {
     let i = 1;
     let m;
@@ -59,14 +125,29 @@ export function isPentagonal(n: number): boolean {
     return m === n;
 }
 
+/**
+ * Calculates the nth hexagonal number.
+ * @param n - The number.
+ * @returns The nth hexagonal number.
+ */
 export function hexagonal(n: number): number {
     return n * (2 * n - 1);
 }
 
+/**
+ * Checks if a number is hexagonal.
+ * @param n - The number.
+ * @returns `true` if `n` is hexagonal, `false` otherwise.
+ */
 export function isHexagonal(n: number): boolean {
     return (1 + Math.sqrt(8 * n + 1)) / 4 % 1 === 0;
 }
 
+/**
+ * Checks if a number is prime.
+ * @param n - The number.
+ * @returns `true` if `n` is prime, `false` otherwise.
+ */
 export function isPrime(n: number): boolean {
     if (n <= 1)
         return false;
@@ -85,6 +166,11 @@ export function isPrime(n: number): boolean {
     return true;
 }
 
+/**
+ * Checks if a number is pandigital.
+ * @param n - The number.
+ * @returns `true` if `n` is pandigital, `false` otherwise.
+ */
 export function isPandigital(n: number): boolean {
     return Array(Math.min(n.toString().length, 9))
         .fill(0)
@@ -92,6 +178,12 @@ export function isPandigital(n: number): boolean {
         .every((d) => n.toString().includes(String(d)));
 }
 
+/**
+ * Swaps two elements in an array.
+ * @param array - The array to swap elements in.
+ * @param index1 - The index of the first element.
+ * @param index2 - The index of the second element.
+ */
 export function swap(array: unknown[], index1: number, index2: number): void {
     const temp = array[index1];
 
@@ -99,12 +191,17 @@ export function swap(array: unknown[], index1: number, index2: number): void {
     array[index2] = temp;
 }
 
+/**
+ * Generates the permutations of an array.
+ * @param a - The array.
+ * @returns An array of permutations.
+ */
 export function permutations(a: unknown[]): string[] {
     const r = a.length - 1;
     const l = 0;
     const output: string[] = [];
 
-    function permute(_a: unknown[], _l: number, _r: number): void {
+    const permute = (_a: unknown[], _l: number, _r: number): void => {
         if (_l === _r) {
             output.push(_a.join(""));
         } else {
@@ -114,13 +211,18 @@ export function permutations(a: unknown[]): string[] {
                 swap(_a, _l, i);
             }
         }
-    }
+    };
 
     permute(a, l, r);
 
     return output;
 }
 
+/**
+ * Caclulates the factors of a number.
+ * @param n - The number.
+ * @returns The factors of `n`.
+ */
 export function factors(n: number): number[] {
     const arr = [];
     let max = n;
@@ -140,6 +242,11 @@ export function factors(n: number): number[] {
     return arr.sort((a, b) => a - b);
 }
 
+/**
+ * Checks if a number is abundant, deficient, or perfect.
+ * @param n - The number.
+ * @returns The type of the number.
+ */
 export function howPerfect(n: number): "ABUNDANT" | "DEFICIENT" | "PERFECT" {
     let d = 0;
 
@@ -157,18 +264,38 @@ export function howPerfect(n: number): "ABUNDANT" | "DEFICIENT" | "PERFECT" {
     return "ABUNDANT";
 }
 
+/**
+ * Checks if a number is perfect.
+ * @param n - The number.
+ * @returns `true` if `n` is perfect, `false` otherwise.
+ */
 export function isPerfect(n: number): boolean {
     return howPerfect(n) === "PERFECT";
 }
 
+/**
+ * Checks if a number is abundant.
+ * @param n - The number.
+ * @returns `true` if `n` is abundant, `false` otherwise.
+ */
 export function isAbundant(n: number): boolean {
     return howPerfect(n) === "ABUNDANT";
 }
 
+/**
+ * Checks if a number is deficient.
+ * @param n - The number.
+ * @returns `true` if `n` is deficient, `false` otherwise.
+ */
 export function isDeficient(n: number): boolean {
     return howPerfect(n) === "DEFICIENT";
 }
 
+/**
+ * Calculates the prime factors of a number.
+ * @param n - The number.
+ * @returns The sum of the proper divisors of `n`.
+ */
 export function primeFactors(n: number): number[] {
     const _factors = [];
 
@@ -184,10 +311,18 @@ export function primeFactors(n: number): number[] {
     return [...new Set(_factors)];
 }
 
+/**
+ * Checks if two numbers are permutations of each other.
+ * @param x - The number.
+ * @param y - The number.
+ * @returns `true` if `x` and `y` are permutations of each other, `false` otherwise.
+ */
 export function arePermutations(x: number, y: number): boolean {
-    const xDigits = x.toString().split("")
+    const xDigits = x.toString()
+        .split("")
         .map(Number);
-    let yDigits = y.toString().split("")
+    let yDigits = y.toString()
+        .split("")
         .map(Number);
 
     if (xDigits.length !== yDigits.length)

@@ -22,4 +22,4 @@ for (let i = 1000; i < 10000; i++) {
         finalTerms = terms;
 }
 
-export default finalTerms.map((x) => x.toString()).join("");
+export default parseInt(finalTerms.map((x) => x.toString()).join(""), 10);

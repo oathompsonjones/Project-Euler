@@ -1,10 +1,41 @@
-const baseNumbers = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const baseNumbers = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+];
 
-const teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+const teens = [
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+];
 
-const baseTens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+const baseTens = [
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+];
 
-function countLettersTo1000(): number {
+const countLettersTo1000 = (): number => {
     let count = 0;
 
     // 1-9
@@ -36,6 +67,6 @@ function countLettersTo1000(): number {
     count += "onethousand".length;
 
     return count;
-}
+};
 
 export default countLettersTo1000();
