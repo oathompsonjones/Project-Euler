@@ -7,7 +7,7 @@
  * @returns An array of numbers from `start` to `end`.
  */
 export function range(start: number, end: number): number[] {
-    return Array(end - start + 1).fill(0).map((_, i) => start + i);
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 }
 
 /**
@@ -165,10 +165,12 @@ export function permutations<T>(array: T[]): T[][] {
 
     for (let i = 1; i < array.length; i++) {
         if (c[i]! < i) {
-            swap(array, i, i % 2 && c[i]!);
+            const arr = array.slice();
+
+            swap(arr, i, i % 2 && c[i]!);
             ++c[i]!;
             i = 0;
-            result.push(array.slice());
+            result.push(arr);
         } else {
             c[i] = 0;
         }
