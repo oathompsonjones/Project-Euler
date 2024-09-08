@@ -9,7 +9,7 @@ beforeAll(async () => {
     for (let i = 1; i < answers.length + 1; i++) {
         console.time(`Problem ${i}/${answers.length}`);
         // eslint-disable-next-line no-await-in-loop
-        const { default: solution } = await import(getProblemPath(i)) as { default: number; };
+        const { default: solution } = await import(getProblemPath(i, true)) as { default: number; };
 
         console.timeEnd(`Problem ${i}/${answers.length}`);
         solutions.push(solution);
