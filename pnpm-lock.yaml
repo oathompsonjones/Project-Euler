@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@oathompsonjones/eslint-config':
-        specifier: ^1.5.3
-        version: 1.5.3(typescript@5.5.4)
+        specifier: ^1.5.4
+        version: 1.5.4(typescript@5.5.4)
       '@oathompsonjones/ts-config':
         specifier: ^0.0.35
         version: 0.0.35
@@ -243,8 +243,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@oathompsonjones/eslint-config@1.5.3':
-    resolution: {integrity: sha512-2loA0KwhjTV7+xxNb9zbNAci9N2hJ+IIBDy3V27Qsklq/AdQJ7suO1I1zvaR9WX7mZpRvAfmiLsgUfddNr8ylA==}
+  '@oathompsonjones/eslint-config@1.5.4':
+    resolution: {integrity: sha512-yDdQ1P0SxAIlxIO1cdxwEO+bNzO5oqPldANG6Tc8JDQX4KknKcucmet2GdA/4YGzqqgt5FlCaoTvm9M4R5fO1A==}
 
   '@oathompsonjones/ts-config@0.0.35':
     resolution: {integrity: sha512-euh5l8qwsqjh7XuOCoW0ej+On8WVEWj7xtJTPP5zOh2hKzFflNawPE7Oqyy8DFFpS1g+L6OIgGkFiUdwVL9VnA==}
@@ -1306,8 +1306,8 @@ packages:
   slashes@3.0.12:
     resolution: {integrity: sha512-Q9VME8WyGkc7pJf6QEkj3wE+2CnvZMI+XJhwdTPR8Z/kWQRXi7boAWLDibRPyHRTUTPx5FaU7MsyrjI3yLB4HA==}
 
-  source-map-js@1.2.0:
-    resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
   spdx-exceptions@2.5.0:
@@ -1724,7 +1724,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@oathompsonjones/eslint-config@1.5.3(typescript@5.5.4)':
+  '@oathompsonjones/eslint-config@1.5.4(typescript@5.5.4)':
     dependencies:
       '@eslint-types/jsdoc': 48.2.2
       '@next/eslint-plugin-next': 14.2.8
@@ -2848,7 +2848,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.0
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
 
@@ -2975,7 +2975,7 @@ snapshots:
 
   slashes@3.0.12: {}
 
-  source-map-js@1.2.0: {}
+  source-map-js@1.2.1: {}
 
   spdx-exceptions@2.5.0: {}
 

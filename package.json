@@ -18,7 +18,7 @@
     "author": "oathompsonjones",
     "license": "MIT",
     "devDependencies": {
-        "@oathompsonjones/eslint-config": "^1.5.3",
+        "@oathompsonjones/eslint-config": "^1.5.4",
         "@oathompsonjones/ts-config": "^0.0.35",
         "@types/node": "^22.5.4",
         "typescript": "^5.5.4",
