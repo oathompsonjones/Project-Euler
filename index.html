@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <style>
+        /* Layout */
+        body,
+        h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            margin: 1rem;
+            max-width: 90%;
+            width: 100%;
+        }
+
+        /* Scrolling */
+        code {
+            overflow: auto;
+        }
+
+        /* Font */
+        body,
+        input,
+        h2,
+        a,
+        code {
+            font-family: "Fira Code", monospace;
+            font-variant-ligatures: contextual;
+        }
+
+        /* Colour */
         :root {
             --background: rgb(30, 33, 39);
             --text: white;
@@ -14,55 +46,50 @@
         }
 
         body,
-        input,
-        h2,
-        a {
-            align-items: center;
+        a,
+        input {
             background-color: var(--background);
             color: var(--text);
-            display: flex;
-            font-family: "Monaco", monospace;
-            justify-content: center;
         }
 
-        pre,
+        /* Border */
+        code,
         input {
             border: 3px solid gray;
             border-radius: 1rem;
-            color: lightgray;
-            display: flex;
             padding: 1rem;
         }
     </style>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
 <html>
     <body>
-        <div>
+        <main>
             <div style="display: flex;">
-                <h1>Project Euler</h1>
+                <h1>
+                    <=|Project Euler|=>
+                </h1>
                 <div style="flex: 1;"></div>
                 <input type="number" id="input" placeholder="Enter a problem">
             </div>
             <a id="link" href="">
-                <h2 id="title"></h2>
+                <h2 id="title">
+                    Problem
+                </h2>
             </a>
-            <pre id="code-wrapper" style="display: none;">
-                <code class="language-typescript" id="code"></code>
+            <pre>
+                <code class="language-typescript" id="code">404: Not Found</code>
             </pre>
             <h2>Utils</h2>
             <pre>
-                <code class="language-typescript" id="utils"></code>
+                <code class="language-typescript" id="utils">404: Not Found</code>
             </pre>
-        </div>
+        </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
             const input = document.getElementById("input");
             const title = document.getElementById("title");
             const link = document.getElementById("link");
             const code = document.getElementById("code");
-            const codeWrapper = document.getElementById("code-wrapper");
 
             function getFile(problem) {
                 const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
@@ -76,19 +103,11 @@
 
             input.addEventListener("input", () => {
                 const { value } = input;
-
-                if (value > 0) {
-                    link.href = `https://projecteuler.net/problem=${value}`;
-                    title.textContent = `Problem ${value}`;
-                    codeWrapper.style.display = "flex";
-                    fetch(getFile(value))
-                        .then((response) => response.text())
-                        .then((text) => code.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
-                } else {
-                    title.href = "";
-                    title.textContent = "";
-                    codeWrapper.style.display = "none";
-                }
+                link.href = `https://projecteuler.net/problem=${value}`;
+                title.textContent = `Problem ${value}`;
+                fetch(getFile(value))
+                    .then((response) => response.text())
+                    .then((text) => code.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
             });
 
             const utils = document.getElementById("utils");
@@ -96,6 +115,8 @@
             fetch(utilsPath)
                 .then((response) => response.text())
                 .then((text) => utils.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
+
+            hljs.highlightAll();
         </script>
     </body>
 </html>
