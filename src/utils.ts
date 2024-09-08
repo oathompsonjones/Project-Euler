@@ -1,25 +1,6 @@
 /* eslint-disable no-param-reassign */
 
 /**
- * Gets the path to a problem file.
- * @param problem - The problem number.
- * @param src - Whether to get the source file path.
- * @returns The path to the problem file.
- */
-export function getProblemPath(problem: number, src: boolean = false): string {
-    const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
-    const closest50Minus49 = String(closest50 - 49).padStart(2, "0");
-    const closest10 = problem % 10 === 0 ? problem : Math.floor(problem / 10) * 10 + 10;
-    const closest10Minus9 = String(closest10 - 9).padStart(2, "0");
-
-    const dir = src ? "src" : "build";
-    const ext = src ? "ts" : "js";
-    const file = problem.toString().padStart(2, "0");
-
-    return `./${dir}/${closest50Minus49}-${closest50}/${closest10Minus9}-${closest10}/${file}.${ext}`;
-}
-
-/**
  * Generates the range [start, end].
  * @param start - The starting number.
  * @param end - The ending number.

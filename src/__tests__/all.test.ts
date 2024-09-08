@@ -1,6 +1,6 @@
 import { beforeAll, test } from "vitest";
 import answers from "./answers.json";
-import { getProblemPath } from "../utils.js";
+import { getProblemPath } from "../run.js";
 
 const solutions = [NaN];
 
