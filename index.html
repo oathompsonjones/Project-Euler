@@ -89,6 +89,17 @@
                 width: 2em;
             }
 
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            input[type=number] {
+                appearance: textfield;
+                -moz-appearance: textfield;
+            }
+
             #ligature-toggle {
                 float: right;
             }
@@ -105,7 +116,7 @@
             <h2>
                 <button onclick="prev()">&lt;|</button>
                 <a id="link" href="">Problem</a>
-                <input type="text" id="input">
+                <input type="number" id="input" min="1">
                 <button onclick="next()">|&gt;</button>
             </h2>
             <pre><code class="language-typescript" id="code">404: Not Found</code></pre>
