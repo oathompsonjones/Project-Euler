@@ -1,94 +1,121 @@
 <!DOCTYPE html>
-<head>
-    <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <style>
-        /* Layout */
-        body,
-        h2 {
-            display: flex;
-            justify-content: center;
-        }
-
-        main {
-            margin: 1rem;
-            max-width: 90%;
-            width: 100%;
-        }
-
-        /* Scrolling */
-        code {
-            overflow: auto;
-        }
-
-        /* Font */
-        body,
-        input,
-        h2,
-        a,
-        code {
-            font-family: "Fira Code", monospace;
-            font-variant-ligatures: contextual;
-        }
-
-        /* Colour */
-        :root {
-            --background: rgb(30, 33, 39);
-            --text: white;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --background: white;
-                --text: black;
-            }
-        }
-
-        body,
-        a,
-        input {
-            background-color: var(--background);
-            color: var(--text);
-        }
-
-        /* Border */
-        code,
-        input {
-            border: 3px solid gray;
-            border-radius: 1rem;
-            padding: 1rem;
-        }
-    </style>
-</head>
 <html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+        <style>
+            /* Layout */
+            body {
+                display: grid;
+                grid-template-columns: [full-start] 1fr [content-start] 1fr [content-end] 1fr [full-end];
+                max-width: 100%;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                grid-column: content;
+                justify-content: center;
+            }
+
+            header {
+                display: grid;
+                grid-column: full;
+                grid-template-columns: [title-start] 1fr [title-end];
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            header>h1 {
+                grid-column: title;
+            }
+
+            header>button {
+                grid-column: title-end;
+            }
+
+            h1,
+            h2 {
+                text-align: center;
+            }
+
+            /* Font */
+            * {
+                font-family: "Fira Code", monospace;
+            }
+
+            /* Colour */
+            :root {
+                color-scheme: dark;
+                --background: rgb(30, 33, 39);
+                --text: white;
+            }
+
+            @media (prefers-color-scheme: light) {
+                :root {
+                    color-scheme: light;
+                    --background: white;
+                    --text: black;
+                }
+            }
+
+            body,
+            a,
+            input {
+                background-color: var(--background);
+                color: var(--text);
+            }
+
+            /* Code */
+            code {
+                border: 3px solid gray;
+                border-radius: 1rem;
+                overflow: auto;
+                padding: 1rem;
+            }
+
+            /* Inputs */
+            button,
+            input {
+                background: none;
+                border: none;
+                color: inherit;
+                cursor: pointer;
+                font: inherit;
+                outline: inherit;
+                padding: 0;
+                text-align: center;
+                width: 2em;
+            }
+
+            #ligature-toggle {
+                float: right;
+            }
+        </style>
+    </head>
     <body>
+        <header>
+            <h1>&lt;&lt;===||Project Euler||===&gt;&gt;</h1>
+            <button id="ligature-toggle" onclick="toggleLigatures()">
+                <h2>&lt;/&gt;</h2>
+            </button>
+        </header>
         <main>
-            <div style="display: flex;">
-                <h1>
-                    <=|Project Euler|=>
-                </h1>
-                <div style="flex: 1;"></div>
-                <input type="number" id="input" placeholder="Enter a problem">
-            </div>
-            <a id="link" href="">
-                <h2 id="title">
-                    Problem
-                </h2>
-            </a>
-            <pre>
-                <code class="language-typescript" id="code">404: Not Found</code>
-            </pre>
+            <h2>
+                <button onclick="prev()">&lt;|</button>
+                <a id="link" href="">Problem</a>
+                <input type="text" id="input">
+                <button onclick="next()">|&gt;</button>
+            </h2>
+            <pre><code class="language-typescript" id="code">404: Not Found</code></pre>
             <h2>Utils</h2>
-            <pre>
-                <code class="language-typescript" id="utils">404: Not Found</code>
-            </pre>
+            <pre><code class="language-typescript" id="utils">404: Not Found</code></pre>
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
             /*** Elements ***/
             const input = document.getElementById("input");
-            const title = document.getElementById("title");
             const link = document.getElementById("link");
             const code = document.getElementById("code");
             const utils = document.getElementById("utils");
@@ -104,8 +131,8 @@
 
             function inputHandler() {
                 // Ensure input is valid
-                if (input.value === "" || input.value < 1)
-                    input.value = 1;
+                if (input.value < 1)
+                    return;
 
                 // Update URL
                 window.location.hash = `problem=${input.value}`;
@@ -117,7 +144,22 @@
 
                 // Update elements
                 link.href = `https://projecteuler.net/problem=${input.value}`;
-                title.textContent = `Problem ${input.value}`;
+            }
+
+            function prev() {
+                input.value = Math.max(1, Number(input.value) - 1);
+                inputHandler();
+            }
+
+            function next() {
+                input.value = Number(input.value) + 1;
+                inputHandler();
+            }
+
+            function toggleLigatures() {
+                const selectors = document.querySelectorAll("*");
+                for (const selector of selectors)
+                    selector.style.fontVariantLigatures = selector.style.fontVariantLigatures === "contextual" ? "none" : "contextual";
             }
 
             /*** Event Listeners ***/
@@ -135,6 +177,9 @@
 
             // Initial input handler
             inputHandler();
+
+            // Enable ligatures
+            toggleLigatures();
 
             // Highlight all code
             hljs.highlightAll();
