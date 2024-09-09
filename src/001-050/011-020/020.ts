@@ -1,10 +1,9 @@
-const num = [
-    "9332621544394415268169923885626670049071596826438162146859296389521759999322991",
-    "5608941463976156518286253697920827223758251185210916864000000000000000000000000",
-].join("");
+import { factorial } from "../../utils.js";
+
+const oneHundredFactorial = factorial(100n).toString();
 let total = 0;
 
-num.split("").forEach((n) => {
+oneHundredFactorial.split("").forEach((n) => {
     total += parseInt(n, 10);
 });
 

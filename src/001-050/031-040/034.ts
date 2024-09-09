@@ -1,12 +1,9 @@
-import { factorial, sum } from "../../utils.js";
+import { digits, factorial, sum } from "../../utils.js";
 
 const nums = [];
 
-for (let i = 3; i < 1000000; i++) {
-    const digits = i.toString().split("");
-    const factorialDigits = digits.map((digit) => factorial(parseInt(digit, 10)));
-
-    if (sum(factorialDigits) === i)
+for (let i = 3; i < 1e6; i++) {
+    if (sum(digits(i).map(factorial)) === i)
         nums.push(i);
 }
 

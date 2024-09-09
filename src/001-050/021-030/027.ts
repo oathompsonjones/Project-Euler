@@ -4,8 +4,8 @@ let N = 0;
 let A = 0;
 let B = 0;
 
-for (let a = -999; a < 1000; a++) {
-    for (let b = -1000; b <= 1000; b++) {
+for (let a = 1 - 1e3; a < 1e3; a++) {
+    for (let b = -1e3; b <= 1e3; b++) {
         let stillPrime = true;
         let n = 0;
 

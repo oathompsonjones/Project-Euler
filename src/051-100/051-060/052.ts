@@ -1,4 +1,4 @@
-import { arePermutations, range } from "../../utils.js";
+import { arePermutations, digits, range } from "../../utils.js";
 
 let result = NaN;
 
@@ -7,7 +7,7 @@ for (let i = 1; isNaN(result); i++) {
     let allSameDigits = true;
 
     for (const num of nums)
-        allSameDigits &&= arePermutations(i, num);
+        allSameDigits &&= arePermutations(digits(i), digits(num));
 
     if (allSameDigits)
         result = i;

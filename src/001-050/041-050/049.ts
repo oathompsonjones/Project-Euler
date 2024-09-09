@@ -1,8 +1,8 @@
-import { arePermutations, isPrime } from "../../utils.js";
+import { arePermutations, digits, isPrime } from "../../utils.js";
 
 let finalTerms: number[] = [];
 
-for (let i = 1000; i < 10000; i++) {
+for (let i = 1e3; i < 1e4; i++) {
     if (!isPrime(i))
         continue;
 
@@ -12,7 +12,7 @@ for (let i = 1000; i < 10000; i++) {
         if (!isPrime(i + j) || !isPrime(i + j + j))
             continue;
 
-        if (!arePermutations(i, i + j) || !arePermutations(i, i + j + j))
+        if (!arePermutations(digits(i), digits(i + j)) || !arePermutations(digits(i), digits(i + j + j)))
             continue;
 
         terms.push(i + j, i + j + j);

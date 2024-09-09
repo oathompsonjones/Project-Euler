@@ -1,7 +1,7 @@
 let maxSolutionsP = 0;
 let maxSolutions = 0;
 
-for (let i = 0; i <= 1000; i++) {
+for (let i = 0; i <= 1e3; i++) {
     const triples = [];
 
     for (let a = 1; a < i / 2; a++) {

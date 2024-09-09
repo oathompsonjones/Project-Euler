@@ -1,7 +1,7 @@
 const number = [1];
 let sum = 0;
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 1e3; i++) {
     let overflow = 0;
     const count = number.length + 1;
 
@@ -20,7 +20,7 @@ for (let i = 0; i < 1000; i++) {
         number[j] = digit;
     }
 }
-for (let i = 0; i < 1000; i++)
+for (let i = 0; i < 1e3; i++)
     sum += number[i]!;
 
 export default sum;

@@ -1,6 +1,6 @@
 const arrPythag = [];
 
-for (let i = 1; i <= 1000; i++)
+for (let i = 1; i <= 1e3; i++)
     arrPythag.push(i);
 const allTriplets = [];
 
@@ -11,7 +11,7 @@ for (const i of arrPythag) {
             const bSquared = k ** 2;
             const cSquared = p ** 2;
 
-            if (aSquared + bSquared === cSquared && i + k + p === 1000)
+            if (aSquared + bSquared === cSquared && i + k + p === 1e3)
                 allTriplets.push([i, k, p]);
         }
     }

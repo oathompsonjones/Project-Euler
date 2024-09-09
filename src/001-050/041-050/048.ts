@@ -1,4 +1,4 @@
-// Yeah using BigInteger is kinda cheating, but oh well.
+// Original Attempt using BigInt, kinda cheating.
 let sum = 0n;
 
 for (let i = 1n; i <= 1000n; i++)
@@ -12,7 +12,7 @@ export const answer = sum.toString().slice(sum.toString().length - 10);
 let result = 0;
 const modulo = 1e10;
 
-for (let i = 1; i <= 1000; i++) {
+for (let i = 1; i <= 1e3; i++) {
     let temp = i;
 
     for (let j = 1; j < i; j++) {

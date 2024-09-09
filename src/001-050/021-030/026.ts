@@ -40,7 +40,7 @@ const getCycleSize = (num: number): number => {
 let longestNum = 1;
 let largestCycleSize = 1;
 
-for (let currentNum = longestNum + 1; currentNum <= 1000; currentNum++) {
+for (let currentNum = longestNum + 1; currentNum <= 1e3; currentNum++) {
     const cycleSize = getCycleSize(currentNum);
 
     if (cycleSize > largestCycleSize) {

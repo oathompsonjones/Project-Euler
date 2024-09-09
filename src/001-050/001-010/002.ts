@@ -4,7 +4,7 @@ let temp;
 const numArr = [];
 let total = 0;
 
-while (a < 4000000) {
+while (a < 4e6) {
     temp = a;
     a += b;
     b = temp;

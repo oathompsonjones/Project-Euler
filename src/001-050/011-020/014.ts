@@ -1,7 +1,7 @@
 let longestSequenceLength = 0;
 let longestSequenceNumber = 0;
 
-for (let i = 1; i < 1000000; i++) {
+for (let i = 1; i < 1e6; i++) {
     let num = i;
     const sequence = [];
 
