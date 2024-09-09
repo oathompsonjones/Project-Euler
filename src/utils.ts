@@ -160,17 +160,16 @@ export function swap(array: unknown[], index1: number, index2: number): void {
  * @returns An array of permutations.
  */
 export function permutations<T>(array: T[]): T[][] {
+    const copy = array.slice();
     const result = [array.slice()];
     const c = Array.from({ length: array.length }, () => 0);
 
     for (let i = 1; i < array.length; i++) {
         if (c[i]! < i) {
-            const arr = array.slice();
-
-            swap(arr, i, i % 2 && c[i]!);
+            swap(copy, i, i % 2 && c[i]!);
             ++c[i]!;
             i = 0;
-            result.push(arr);
+            result.push(copy.slice());
         } else {
             c[i] = 0;
         }
