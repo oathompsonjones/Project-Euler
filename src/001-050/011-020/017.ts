@@ -35,38 +35,34 @@ const baseTens = [
     "ninety",
 ];
 
-const countLettersTo1000 = (): number => {
-    let count = 0;
+let count = 0;
 
-    // 1-9
+// 1-9
+for (const baseNumber of baseNumbers)
+    count += baseNumber.length;
+
+// 10-19
+for (const teen of teens)
+    count += teen.length;
+
+// 20-99
+for (const baseTen of baseTens) {
     for (const baseNumber of baseNumbers)
-        count += baseNumber.length;
+        count += baseTen.length + baseNumber.length;
+}
 
-    // 10-19
-    for (const teen of teens)
-        count += teen.length;
+const oneToOneHundred = count;
 
-    // 20-99
-    for (const baseTen of baseTens) {
-        for (const baseNumber of baseNumbers)
-            count += baseTen.length + baseNumber.length;
-    }
+// 100-999
+for (let i = 1; i < baseNumbers.length; i++) {
+    const hundredsPrefix = `${baseNumbers[i]}hundred`;
 
-    const oneToOneHundred = count;
+    count += hundredsPrefix.length;
+    count += oneToOneHundred;
+    count += 99 * `${hundredsPrefix}and`.length;
+}
 
-    // 100-999
-    for (let i = 1; i < baseNumbers.length; i++) {
-        const hundredsPrefix = `${baseNumbers[i]}hundred`;
+// 1000
+count += "onethousand".length;
 
-        count += hundredsPrefix.length;
-        count += oneToOneHundred;
-        count += 99 * `${hundredsPrefix}and`.length;
-    }
-
-    // 1000
-    count += "onethousand".length;
-
-    return count;
-};
-
-export default countLettersTo1000();
+export default count;

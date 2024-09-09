@@ -1,7 +1,5 @@
 import { isPrime } from "../../utils.js";
 
-const newEqu = (a: number, b: number, n: number): number => n * n + a * n + b;
-
 let N = 0;
 let A = 0;
 let B = 0;
@@ -12,7 +10,7 @@ for (let a = -999; a < 1000; a++) {
         let n = 0;
 
         while (stillPrime) {
-            const out = newEqu(a, b, n);
+            const out = n * n + a * n + b;
 
             stillPrime = isPrime(out);
             n++;

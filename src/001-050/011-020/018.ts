@@ -16,37 +16,29 @@ const triangle = [
     "04 62 98 27 23 09 70 98 73 93 38 53 60 04 23",
 ];
 
-const prepareNumTriangle = (tri: string[]): number[][] => {
-    const numTri: number[][] = [];
+const numTri: number[][] = [];
 
-    for (let i = 0; i < tri.length; i++) {
-        numTri[i] = [];
-        const row = tri[i]!.split(" ");
+for (let i = 0; i < triangle.length; i++) {
+    numTri[i] = [];
+    const row = triangle[i]!.split(" ");
 
-        for (let j = 0; j < row.length; j++)
-            numTri[i]![j] = parseInt(row[j]!, 10);
+    for (let j = 0; j < row.length; j++)
+        numTri[i]![j] = parseInt(row[j]!, 10);
+}
+
+const tmpTri = numTri;
+let botRow = tmpTri[tmpTri.length - 1]!;
+
+for (let i = 0; i < tmpTri.length - 1; i++) {
+    const checkRow = tmpTri[tmpTri.length - 2 - i]!;
+
+    for (let j = 0; j < checkRow.length; j++) {
+        if (botRow[j]! > botRow[j + 1]!)
+            checkRow[j]! += botRow[j]!;
+        else
+            checkRow[j]! += botRow[j + 1]!;
     }
+    botRow = checkRow;
+}
 
-    return numTri;
-};
-
-const collapseTriangleToHighest = (numTri: number[][]): number => {
-    const tmpTri = numTri;
-    let botRow = tmpTri[tmpTri.length - 1]!;
-
-    for (let i = 0; i < tmpTri.length - 1; i++) {
-        const checkRow = tmpTri[tmpTri.length - 2 - i]!;
-
-        for (let j = 0; j < checkRow.length; j++) {
-            if (botRow[j]! > botRow[j + 1]!)
-                checkRow[j]! += botRow[j]!;
-            else
-                checkRow[j]! += botRow[j + 1]!;
-        }
-        botRow = checkRow;
-    }
-
-    return tmpTri[0]![0]!;
-};
-
-export default collapseTriangleToHighest(prepareNumTriangle(triangle));
+export default tmpTri[0]![0]!;

@@ -134,9 +134,7 @@ export function isPrime(n: number): boolean {
  * @returns `true` if `n` is pandigital, `false` otherwise.
  */
 export function isPandigital(n: number): boolean {
-    return Array(Math.min(n.toString().length, 9))
-        .fill(0)
-        .map((_, i) => i + 1)
+    return Array.from({ length: Math.min(n.toString().length, 9) }, (_, i) => i + 1)
         .every((d) => n.toString().includes(String(d)));
 }
 
@@ -200,6 +198,23 @@ export function combinations<T>(array: T[]): T[][] {
     }
 
     return combos;
+}
+
+/**
+ * Generates the rotations of a number.
+ * @param n - The number.
+ * @returns An array of rotations of `n`.
+ */
+export function rotations(n: number): number[] {
+    const numbers = [];
+    let num = n.toString();
+
+    for (const _ of n.toString()) {
+        numbers.push(num);
+        num = `${num.split("")[num.length - 1]}${num.slice(0, num.length - 1)}`;
+    }
+
+    return numbers.map(Number);
 }
 
 /**
