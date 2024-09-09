@@ -399,3 +399,13 @@ export function arePermutations(x: number, y: number): boolean {
 
     return true;
 }
+
+/**
+ * Calculates the number of combinations of `n` choose `r`.
+ * @param n - The number of items.
+ * @param r - The number of items to choose.
+ * @returns The number of combinations of `n` choose `r`.
+ */
+export function ncr(n: number, r: number): number {
+    return factorial(n) / (factorial(r) * factorial(n - r));
+}
