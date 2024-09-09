@@ -1,3 +1,5 @@
+<!-- TODO - Access projecteuler.net for problem description and title if possible.  -->
+
 <!DOCTYPE html>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
@@ -86,11 +88,14 @@
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
+            /*** Elements ***/
             const input = document.getElementById("input");
             const title = document.getElementById("title");
             const link = document.getElementById("link");
             const code = document.getElementById("code");
+            const utils = document.getElementById("utils");
 
+            /*** Functions ***/
             function getFile(problem) {
                 const p = (n) => `${n}`.padStart(3, "0");
                 const closest50 = problem % 50 === 0 ? problem : Math.floor(problem / 50) * 50 + 50;
@@ -99,21 +104,53 @@
                 return `https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/${path}`;
             }
 
-            input.addEventListener("input", () => {
-                const { value } = input;
-                link.href = `https://projecteuler.net/problem=${value}`;
-                title.textContent = `Problem ${value}`;
-                fetch(getFile(value))
+            function inputHandler() {
+                // Ensure input is valid
+                if (input.value === "" || input.value < 1)
+                    input.value = 1;
+
+                // Update URL
+                window.location.hash = `problem=${input.value}`;
+
+                // Update elements
+                link.href = `https://projecteuler.net/problem=${input.value}`;
+                title.textContent = `Problem ${input.value}`;
+
+                // Fetch and highlight code
+                fetch(getFile(input.value))
                     .then((response) => response.text())
                     .then((text) => code.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
-            });
 
-            const utils = document.getElementById("utils");
-            const utilsPath = "https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/utils.ts";
-            fetch(utilsPath)
+                // Fetch Project Euler information and update title
+                fetch(`https://projecteuler.net/problem=${input.value}`)
+                    .then((response) => response.text())
+                    .then((text) => {
+                        const doc = new DOMParser().parseFromString(text, "text/html");
+                        const problem = doc.querySelector(".problem_content");
+                        const problemTitle = doc.querySelector("h2");
+                        console.log(doc);
+                        if (problemTitle)
+                            title.textContent += `: ${problemTitle.textContent}`;
+                    });
+            }
+
+            /*** Event Listeners ***/
+            input.addEventListener("input", inputHandler);
+
+            /*** Initial setup ***/
+            // Fetch and highlight utils
+            fetch("https://raw.githubusercontent.com/oathompsonjones/Project-Euler/master/src/utils.ts")
                 .then((response) => response.text())
                 .then((text) => utils.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
 
+            // Load problem from URL
+            if (input.value === "")
+                input.value = window.location.hash.match(/#problem=\d+/) ? window.location.hash.match(/\d+/)[ 0 ] : 1;
+
+            // Initial input handler
+            inputHandler();
+
+            // Highlight all code
             hljs.highlightAll();
         </script>
     </body>
