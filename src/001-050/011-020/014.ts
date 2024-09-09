@@ -1,4 +1,3 @@
-
 let longestSequenceLength = 0;
 let longestSequenceNumber = 0;
 
