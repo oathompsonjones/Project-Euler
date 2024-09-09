@@ -1,5 +1,3 @@
-<!-- TODO - Access projecteuler.net for problem description and title if possible.  -->
-
 <!DOCTYPE html>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
@@ -112,26 +110,14 @@
                 // Update URL
                 window.location.hash = `problem=${input.value}`;
 
-                // Update elements
-                link.href = `https://projecteuler.net/problem=${input.value}`;
-                title.textContent = `Problem ${input.value}`;
-
                 // Fetch and highlight code
                 fetch(getFile(input.value))
                     .then((response) => response.text())
                     .then((text) => code.innerHTML = hljs.highlight(text, { language: "typescript" }).value);
 
-                // Fetch Project Euler information and update title
-                fetch(`https://projecteuler.net/problem=${input.value}`)
-                    .then((response) => response.text())
-                    .then((text) => {
-                        const doc = new DOMParser().parseFromString(text, "text/html");
-                        const problem = doc.querySelector(".problem_content");
-                        const problemTitle = doc.querySelector("h2");
-                        console.log(doc);
-                        if (problemTitle)
-                            title.textContent += `: ${problemTitle.textContent}`;
-                    });
+                // Update elements
+                link.href = `https://projecteuler.net/problem=${input.value}`;
+                title.textContent = `Problem ${input.value}`;
             }
 
             /*** Event Listeners ***/
