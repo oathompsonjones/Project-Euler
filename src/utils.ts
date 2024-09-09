@@ -180,6 +180,30 @@ export function permutations<T>(array: T[]): T[][] {
 }
 
 /**
+ * Generates the combinations of an array.
+ * @template T - The type of the array.
+ * @param array - The array to generate combinations of.
+ * @returns An array of combinations.
+ */
+export function combinations<T>(array: T[]): T[][] {
+    const combos: T[][] = [];
+
+    for (let i = 0; i < 2 ** array.length; i++) {
+        const temp = [];
+
+        for (let j = 0; j < array.length; j++) {
+            if (i & 2 ** j)
+                temp.push(array[j]!);
+        }
+
+        if (temp.length > 0)
+            combos.push(temp);
+    }
+
+    return combos;
+}
+
+/**
  * Caclulates the factors of a number.
  * @param n - The number.
  * @returns The factors of `n`.
