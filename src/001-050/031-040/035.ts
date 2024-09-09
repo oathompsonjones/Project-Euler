@@ -1,6 +1,6 @@
-import { isPrime, rotations } from "../../utils.js";
+import { isPrime, range, rotations } from "../../utils.js";
 
-const primes = Array.from({ length: 1e6 }, (_, i) => i).filter(isPrime);
+const primes = range(1e6).filter(isPrime);
 const allCircularPrimes = primes.filter((prime) => rotations(prime).every(isPrime));
 
 export default allCircularPrimes.length;

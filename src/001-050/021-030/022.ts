@@ -1,7 +1,9 @@
 import { readFile } from "fs/promises";
+import { sum } from "../../utils.js";
 
 const data = await readFile("inputs/p022_names.txt", "utf-8");
-const names = data.replace(/"/ug, "").split(",")
+const names = data.replace(/"/ug, "")
+    .split(",")
     .sort()
     .map((name) => ({
         ascii: 0,
@@ -15,4 +17,4 @@ names.forEach((name) => {
     name.score = name.ascii * (names.map((n) => n.value).indexOf(name.value) + 1);
 });
 
-export default names.map((name) => name.score).reduce((a, b) => a + b);
+export default sum(names.map((name) => name.score));

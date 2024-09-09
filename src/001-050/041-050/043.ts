@@ -1,8 +1,8 @@
-import { isPrime, permutations, range } from "../../utils.js";
+import { isPrime, permutations, range, sum } from "../../utils.js";
 
 const nums = permutations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).map((x) => x.join(""));
 const funnyNums: number[] = [];
-const primes = range(0, 17).filter(isPrime);
+const primes = range(18).filter(isPrime);
 
 nums.forEach((num) => {
     const subStrings = [];
@@ -16,4 +16,4 @@ nums.forEach((num) => {
         funnyNums.push(parseInt(num, 10));
 });
 
-export default funnyNums.reduce((a, b) => a + b);
+export default sum(funnyNums);

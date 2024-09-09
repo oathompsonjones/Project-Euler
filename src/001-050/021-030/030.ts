@@ -1,11 +1,12 @@
+import { sum } from "../../utils.js";
+
 const numbers = [];
 
-for (let i = 10; i < 1000000; i++) {
-    if (i === i.toString()
-        .split("")
-        .map((j) => Number(j) ** 5)
-        .reduce((a, b) => a + b))
+for (let i = 10; i < 1e6; i++) {
+    if (i === sum(i.toString().split("").map((j) => Number(j) ** 5)))
         numbers.push(i);
 }
 
-export default numbers.reduce((a, b) => a + b);
+console.log(numbers);
+
+export default sum(numbers);

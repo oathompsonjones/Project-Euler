@@ -1,13 +1,31 @@
 /* eslint-disable no-param-reassign */
 
 /**
- * Generates the range [start, end].
+ * Generates the range [0, end).
+ * @param end - The ending number.
+ * @returns An array of numbers from 0 to `end`.
+ */
+export function range(end: number): number[];
+/**
+ * Generates the range [start, end).
  * @param start - The starting number.
  * @param end - The ending number.
  * @returns An array of numbers from `start` to `end`.
  */
-export function range(start: number, end: number): number[] {
-    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+export function range(start: number, end: number): number[];
+/**
+ * Generates the range [start, end).
+ * @param start - The starting number.
+ * @param end - The ending number.
+ * @returns An array of numbers from `start` to `end`.
+ */
+export function range(start: number, end?: number): number[] {
+    if (end === undefined) {
+        end = start;
+        start = 0;
+    }
+
+    return Array.from({ length: end - start }, (_, i) => start + i);
 }
 
 /**
@@ -24,14 +42,46 @@ export function map(x: number, inMin: number, inMax: number, outMin: number, out
 }
 
 /**
+ * Calculates the sum of an array of numbers.
+ * @param ns - The array of numbers.
+ * @returns The sum of `ns`.
+ */
+export function sum(ns: number[]): number {
+    return ns.reduce((a, b) => a + b, 0);
+}
+
+/**
+ * Calculates the product of an array of numbers.
+ * @param ns - The array of numbers.
+ * @returns The product of `ns`.
+ */
+export function product(ns: number[]): number {
+    return ns.reduce((a, b) => a * b, 1);
+}
+
+/**
  * Calculates the factorial of a number.
  * @param n - The number.
  * @returns The factorial of `n`.
  */
 export function factorial(n: number): number {
-    return Array<number>(n).fill(0)
-        .map((_, i) => i + 1)
-        .reduce((a, b) => a * b, 1);
+    return product(range(1, n + 1));
+}
+
+/**
+ * Finds the divisors of a number.
+ * @param n - The number.
+ * @returns The divisors of `n`.
+ */
+export function divisors(n: number): number[] {
+    const arr: number[] = [];
+
+    for (let i = 1; 2 * i <= n; i++) {
+        if (n % i === 0)
+            arr.push(i);
+    }
+
+    return arr;
 }
 
 /**
@@ -134,8 +184,19 @@ export function isPrime(n: number): boolean {
  * @returns `true` if `n` is pandigital, `false` otherwise.
  */
 export function isPandigital(n: number): boolean {
-    return Array.from({ length: Math.min(n.toString().length, 9) }, (_, i) => i + 1)
-        .every((d) => n.toString().includes(String(d)));
+    return range(1, Math.min(n.toString().length, 9) + 1).every((d) => n.toString().includes(String(d)));
+}
+
+/**
+ * Checks if a number or string is a pallindrome.
+ * @param n - The number or string.
+ * @returns `true` if `n` is a pallindrome, `false` otherwise.
+ */
+export function isPallindrome(n: number | string): boolean {
+    return n.toString() === n.toString()
+        .split("")
+        .reverse()
+        .join("");
 }
 
 /**

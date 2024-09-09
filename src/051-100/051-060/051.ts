@@ -7,11 +7,11 @@ loop: for (let i = 2; ; i++) {
         continue;
 
     const primeStr = i.toString();
-    const indices = range(0, primeStr.length - 1);
+    const indices = range(primeStr.length);
     const combos = combinations(indices);
 
     for (const combo of combos) {
-        const family = range(1, 9).map((digit) => {
+        const family = range(10).map((digit) => {
             const number = parseInt(primeStr.split("")
                 .map((d, n) => (combo.includes(n) ? digit : d)).join(""), 10);
 

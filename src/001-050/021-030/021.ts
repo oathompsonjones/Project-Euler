@@ -1,25 +1,15 @@
-const d = (n: number): { divisors: number[]; total: number; } => {
-    const divisors = [0];
+import { divisors, sum } from "../../utils.js";
 
-    for (let i = Math.floor(n / 2); i > 0; i--) {
-        if (n % i === 0)
-            divisors.push(i);
-    }
-
-    return {
-        divisors,
-        total: divisors.reduce((a, b) => a + b),
-    };
-};
+const d = (n: number): number => sum(divisors(n));
 
 let nums = [];
 
 for (let i = 1; i < 10000; i++) {
-    const di = d(i).total;
+    const di = d(i);
 
-    if (d(di).total === i && i !== d(i).total)
-        nums.push(i, d(i).total);
+    if (d(di) === i && i !== d(i))
+        nums.push(i, d(i));
 }
 nums = [...new Set(nums)];
 
-export default nums.reduce((a, b) => a + b);
+export default sum(nums);

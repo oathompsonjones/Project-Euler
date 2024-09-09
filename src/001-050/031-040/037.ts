@@ -1,8 +1,6 @@
-import { isPrime } from "../../utils.js";
+import { isPrime, range, sum } from "../../utils.js";
 
-const primes = Array(1e6).fill(0)
-    .map((_, i) => i)
-    .filter(isPrime);
+const primes = range(1e6).filter(isPrime);
 const truncatableLeftToRight = primes.filter((prime) => {
     let str = prime.toString();
 
@@ -28,4 +26,4 @@ const truncatableBothWays = truncatableLeftToRight.filter((prime) => {
     return true;
 });
 
-export default truncatableBothWays.filter((prime) => prime > 10).reduce((a, b) => a + b);
+export default sum(truncatableBothWays.filter((prime) => prime > 10));

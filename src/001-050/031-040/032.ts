@@ -1,4 +1,4 @@
-import { permutations } from "../../utils.js";
+import { permutations, sum } from "../../utils.js";
 
 const products = new Set<number>();
 
@@ -16,4 +16,4 @@ permutations([1, 2, 3, 4, 5, 6, 7, 8, 9]).forEach((permutation) => {
     }
 });
 
-export default [...products].reduce((a, b) => a + b);
+export default sum([...products]);

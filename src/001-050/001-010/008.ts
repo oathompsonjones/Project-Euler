@@ -1,3 +1,5 @@
+import { product, range } from "../../utils.js";
+
 const num = [
     "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843",
     "8586156078911294949545950173795833195285320880551112540698747158523863050715693290963295227443043557",
@@ -14,10 +16,10 @@ const num = [
 let largest = 0;
 
 for (let i = 1; i < 1000; i++) {
-    const product = Object.keys(new Array(13).fill(0)).map((j) => num[i + parseInt(j, 10)]!).reduce((a, b) => a * b);
+    const prod = product(range(13).map((j) => num[i + j]!));
 
-    if (!isNaN(product))
-        largest = Math.max(product, largest);
+    if (!isNaN(prod))
+        largest = Math.max(prod, largest);
 }
 
 export default largest;

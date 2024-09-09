@@ -1,3 +1,5 @@
+import { sum } from "../../utils.js";
+
 const corners = [1];
 let currentCorners = [];
 let currentDifference = 2;
@@ -14,4 +16,4 @@ for (let i = 2; i <= 1001 * 1001; i++) {
     }
 }
 
-export default corners.reduce((a, b) => a + b);
+export default sum(corners);

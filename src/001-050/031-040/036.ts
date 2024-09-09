@@ -1,9 +1,7 @@
-const palindromicDecimals = Array(1000000).fill(0)
-    .map((_, i) => i.toString())
-    .filter((i) => i.split("").reverse()
-        .join("") === i);
-const palindromicDecimalsAsBinary = palindromicDecimals.map((str) => parseInt(str, 10).toString(2));
-const palindromicBinarys = palindromicDecimalsAsBinary.filter((i) => i.split("").reverse()
-    .join("") === i);
+import { isPallindrome, range, sum } from "../../utils.js";
 
-export default palindromicBinarys.map((bin) => parseInt(bin, 2)).reduce((a, b) => a + b);
+const palindromicDecimals = range(1e6).filter(isPallindrome);
+const palindromicDecimalsAsBinary = palindromicDecimals.map((d) => d.toString(2));
+const palindromicBinarys = palindromicDecimalsAsBinary.filter(isPallindrome);
+
+export default sum(palindromicBinarys.map((bin) => parseInt(bin, 2)));

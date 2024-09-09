@@ -1,19 +1,14 @@
-import { isAbundant } from "../../utils.js";
+import { isAbundant, range, sum } from "../../utils.js";
 
 // All numbers larger can be expressed as the sum of 2 abundant numbers.
 const upperLimit = 28123;
-const abundant = Object.keys(new Array(upperLimit).fill(0)).map((i) => parseInt(i, 10))
-    .filter((i) => isAbundant(i));
+const abundant = range(upperLimit).filter(isAbundant);
 
-let abundantSums: number[] = [];
+const abundantSums = new Set<number>();
 
 for (const i of abundant) {
     for (const j of abundant)
-        abundantSums.push(i + j);
+        abundantSums.add(i + j);
 }
-abundantSums = [...new Set(abundantSums)];
 
-const notSumOfAbunadant = Object.keys(new Array(upperLimit).fill(0)).map((i) => parseInt(i, 10))
-    .filter((i) => !abundantSums.includes(i));
-
-export default notSumOfAbunadant.reduce((a, b) => a + b);
+export default sum(range(upperLimit).filter((i) => !abundantSums.has(i)));

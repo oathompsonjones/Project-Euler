@@ -1,4 +1,6 @@
-const decimal = Array(1e6 - 1).fill(0)
+import { range } from "../../utils.js";
+
+const decimal = range(1e6)
     .map((_, i) => (i + 1).toString())
     .reduce((a, b) => a + b)
     .split("")

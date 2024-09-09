@@ -1,4 +1,4 @@
-import { hcf } from "../../utils.js";
+import { hcf, product } from "../../utils.js";
 
 const results = [];
 
@@ -19,7 +19,7 @@ for (let n = 10; n < 100; n++) {
     }
 }
 
-const finalNum = results.map((i) => i[0]!).reduce((a, b) => a * b);
-const finalDen = results.map((i) => i[1]!).reduce((a, b) => a * b);
+const finalNum = product(results.map((i) => i[0]!));
+const finalDen = product(results.map((i) => i[1]!));
 
 export default finalDen / hcf(finalNum, finalDen);
