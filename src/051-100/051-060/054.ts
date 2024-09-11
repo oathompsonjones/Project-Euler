@@ -1,3 +1,4 @@
+import { groupBy } from "../../utils.js";
 import { readFile } from "fs/promises";
 
 type Card = string & {
@@ -15,7 +16,7 @@ const compareCards = (card1: Card, card2: Card): number => {
 };
 const sortCards = (hand: Card[]): Card[] => hand.sort(compareCards);
 const getSets = (hand: Card[], groupSize: 2 | 3 | 4): Card[][] => Object
-    .values(Object.groupBy(hand, (card) => card[0]))
+    .values(groupBy(hand, (card) => card[0]))
     .filter((group) => group.length === groupSize);
 
 const hasPair = (hand: Card[]): Card[] | false => {

@@ -438,3 +438,16 @@ export function isAbundant(n: number): boolean {
 export function isDeficient(n: number): boolean {
     return howPerfect(n) === "DEFICIENT";
 }
+
+// * Node.JS fallbacks *
+/**
+ * Fallback for Object.groupBy as that causes tests to fail in GitHub Actions.
+ * @template T - Type of the array.
+ * @param array - Array to group.
+ * @param cb - Function to group by.
+ * @returns Grouped array.
+ */
+export function groupBy<T>(array: T[], cb: (item: T, i?: number, arr?: T[]) => string): Record<string, T[]> {
+    // eslint-disable-next-line no-sequences
+    return array.reduce<Record<string, T[]>>((p, c, i, a) => ((p[cb(c, i, a)] ??= []).push(c), p), {});
+}
