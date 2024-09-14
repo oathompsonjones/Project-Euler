@@ -105,7 +105,7 @@ const compareHands = (hand1: Card[], hand2: Card[]): number => {
         return rank1 - rank2;
 
     switch (rank1) {
-        // Check which pair, three of a kind, four of a kind, or straight is higher
+        // Check which pair, three of a kind, or four of a kind is higher
         case 1:
         case 3:
         case 7: {
