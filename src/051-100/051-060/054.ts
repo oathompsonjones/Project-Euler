@@ -169,7 +169,7 @@ const compareHands = (hand1: Card[], hand2: Card[]): number => {
     return 0;
 };
 
-const data = await readFile("inputs/p054_poker.txt", "utf-8");
+const data = await readFile("inputs/054_poker.txt", "utf-8");
 const hands = data.trim()
     .split("\n")
     .map((d) => [d.split(" ").slice(0, 5), d.split(" ").slice(5)]) as Array<[Card[], Card[]]>;

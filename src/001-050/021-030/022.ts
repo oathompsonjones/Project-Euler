@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import { sum } from "../../utils.js";
 
-const data = await readFile("inputs/p022_names.txt", "utf-8");
+const data = await readFile("inputs/022_names.txt", "utf-8");
 const names = data.replace(/"/ug, "")
     .split(",")
     .sort()
